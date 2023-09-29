@@ -34,6 +34,7 @@ h3 {
 		display: grid;
 		grid-template-columns: 2fr 1fr;
 		gap: 2rem;
+		place-items: start;
 	}
 	ul {
 		display: grid;

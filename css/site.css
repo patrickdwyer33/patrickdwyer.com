@@ -153,6 +153,7 @@ h3 small {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
+    place-items: start;
   }
 }
 .intro ul {
