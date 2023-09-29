@@ -121,6 +121,11 @@ sup {
   top: -0.5em;
 }
 
+@media print {
+  @page {
+    margin: 0em;
+  }
+}
 body {
   background-color: gray;
 }
@@ -141,10 +146,8 @@ h3 small {
   text-align: right;
 }
 
-#introduction {
-  /*h1 {
-  	margin: 0em;
-  }*/
+#introduction h1 {
+  padding: 0em;
 }
 #introduction .contact_info {
   display: grid;
