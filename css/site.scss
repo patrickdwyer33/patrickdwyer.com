@@ -1,0 +1,31 @@
+@use 'boilerplate' as *;
+
+body {
+	background-color: gray;
+}
+
+main {
+	background-color: white;
+	max-width: 1000px;
+	padding: 2em;
+	margin: auto;
+}
+
+.comma-separated {
+	padding: 0;
+	li {
+		display: inline;
+		&:not(:last-child)::after {
+			content: ", ";
+		}
+	}
+}
+
+h3 {
+	display: grid;
+	grid-template-columns: auto auto;
+	gap: 1em;
+	small {
+		text-align: right;
+	}
+}

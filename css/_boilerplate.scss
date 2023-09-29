@@ -111,36 +111,3 @@ sub {
 sup {
 	top: -0.5em;
 }
-
-body {
-	background-color: gray;
-}
-
-main {
-	background-color: white;
-	max-width: 1000px;
-	padding: 2em;
-	margin: auto;
-}
-
-.comma-separated {
-	padding: 0;
-}
-
-.comma-separated li {
-	display: inline;
-}
-
-.comma-separated li:not(:last-child)::after {
-	content: ", ";
-}
-
-h3 {
-	display: grid;
-	grid-template-columns: auto auto;
-	gap: 1em;
-}
-
-h3 small {
-	text-align: right;
-}
