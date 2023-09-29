@@ -1,5 +1,10 @@
 @media print {
-    @page {
-            margin: 0em;
+    html {
+        font-size: 10pt;
+    }
+
+    main {
+        width: 7.5in;
+        height: 10in;
     }
 }

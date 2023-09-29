@@ -97,13 +97,4 @@ h2 {
 	}
 }
 
-@media print {
-	html {
-		font-size: 10pt;
-	}
-
-	main {
-		width: 7.5in;
-		height: 10in;
-	}
-}
+@import 'print';
