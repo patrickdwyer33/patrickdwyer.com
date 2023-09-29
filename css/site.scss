@@ -1,5 +1,5 @@
 @use 'boilerplate' as *;
-@use 'print' as *;
+// @use 'print' as *;
 
 body {
 	background-color: gray;
@@ -30,18 +30,38 @@ h3 {
 }
 
 .intro {
-	display: grid;
-	grid-template-columns: 2fr 1fr;
-	gap: 2rem;
+	@media (min-width: 800px) {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 2rem;
+	}
 	ul {
 		display: grid;
 		grid-template-columns: 1.5rem auto;
 		gap: 5px;
+		padding: 0;
 		align-content: center;
 		li, a {
 			display: contents;
 		}
 	}
+}
+
+.three-col {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+}
+
+.cols {
+	columns: 10 300px;
+	li {
+		break-inside: avoid;
+	}
+}
+
+h2 {
+	border-bottom: 1px solid gray;
 }
 
 #introduction {
@@ -74,5 +94,16 @@ h3 {
 		&:not(:last-child)::after {
 			content: ", ";
 		}
+	}
+}
+
+@media print {
+	html {
+		font-size: 10pt;
+	}
+
+	main {
+		width: 7.5in;
+		height: 10in;
 	}
 }
