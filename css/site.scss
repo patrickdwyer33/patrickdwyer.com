@@ -11,21 +11,44 @@ main {
 	margin: auto;
 }
 
-.comma-separated {
-	padding: 0;
-	li {
-		display: inline;
-		&:not(:last-child)::after {
-			content: ", ";
-		}
-	}
-}
-
 h3 {
 	display: grid;
 	grid-template-columns: auto auto;
 	gap: 1em;
 	small {
 		text-align: right;
+	}
+}
+
+#introduction {
+	/*h1 {
+		margin: 0em;
+	}*/
+	.contact_info {
+		display: grid;
+		grid-template-columns: auto auto;
+		gap: 1em;
+		ul {
+			display: grid;
+			grid-template-columns: auto auto auto;
+			gap: 1em;
+			margin: 0em;
+			text-align-last: right;
+		}
+		li {
+			display: inline;
+		}
+	}
+}
+
+.comma_separated {
+	padding: 0;
+
+	li {
+		display: inline;
+
+		&:not(:last-child)::after {
+			content: ", ";
+		}
 	}
 }

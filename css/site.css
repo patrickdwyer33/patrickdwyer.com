@@ -132,16 +132,6 @@ main {
   margin: auto;
 }
 
-.comma-separated {
-  padding: 0;
-}
-.comma-separated li {
-  display: inline;
-}
-.comma-separated li:not(:last-child)::after {
-  content: ", ";
-}
-
 h3 {
   display: grid;
   grid-template-columns: auto auto;
@@ -149,4 +139,36 @@ h3 {
 }
 h3 small {
   text-align: right;
+}
+
+#introduction {
+  /*h1 {
+  	margin: 0em;
+  }*/
+}
+#introduction .contact_info {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1em;
+}
+#introduction .contact_info ul {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 1em;
+  margin: 0em;
+  -moz-text-align-last: right;
+       text-align-last: right;
+}
+#introduction .contact_info li {
+  display: inline;
+}
+
+.comma_separated {
+  padding: 0;
+}
+.comma_separated li {
+  display: inline;
+}
+.comma_separated li:not(:last-child)::after {
+  content: ", ";
 }
