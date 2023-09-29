@@ -137,6 +137,13 @@ main {
   margin: auto;
 }
 
+svg#sprites {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  position: absolute;
+}
+
 h3 {
   display: grid;
   grid-template-columns: auto auto;
@@ -144,6 +151,22 @@ h3 {
 }
 h3 small {
   text-align: right;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+.intro ul {
+  display: grid;
+  grid-template-columns: 1.5rem auto;
+  gap: 5px;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+.intro ul li, .intro ul a {
+  display: contents;
 }
 
 #introduction h1 {

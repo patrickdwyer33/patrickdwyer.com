@@ -12,12 +12,35 @@ main {
 	margin: auto;
 }
 
+// SVG Sprites
+svg#sprites {
+	visibility: hidden;
+	height: 0;
+	width: 0;
+	position: absolute;
+}
+
 h3 {
 	display: grid;
 	grid-template-columns: auto auto;
 	gap: 1em;
 	small {
 		text-align: right;
+	}
+}
+
+.intro {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 2rem;
+	ul {
+		display: grid;
+		grid-template-columns: 1.5rem auto;
+		gap: 5px;
+		align-content: center;
+		li, a {
+			display: contents;
+		}
 	}
 }
 
