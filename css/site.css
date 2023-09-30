@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *, *::before, *::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -194,17 +195,32 @@ svg#sprites {
           column-span: all;
 }
 
-.comma_separated {
+.comma-separated, .emdash-separated {
   padding: 0;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
 }
-.comma_separated li {
+.comma-separated li, .emdash-separated li {
   display: inline;
 }
-.comma_separated li:not(:last-child)::after {
+
+.comma-separated li:not(:last-child)::after {
   content: ", ";
 }
 
+.emdash-separated li:not(:last-child)::after {
+  content: " — ";
+}
+
+.deg-bachelors > ul.emdash-separated {
+  text-align: center;
+}
+
 @media print {
+  @page {
+    margin: 0;
+  }
   html {
     font-size: 10pt;
   }

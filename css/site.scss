@@ -1,5 +1,4 @@
 @use 'boilerplate' as *;
-// @use 'print' as *;
 
 body {
 	background-color: gray;
@@ -68,16 +67,25 @@ svg#sprites {
 	}
 }
 
-.comma_separated {
+.comma-separated, .emdash-separated {
 	padding: 0;
+	hyphens: auto;
 
 	li {
 		display: inline;
-
-		&:not(:last-child)::after {
-			content: ", ";
-		}
 	}
+}
+
+.comma-separated li:not(:last-child)::after {
+	content: ", ";
+}
+
+.emdash-separated li:not(:last-child)::after {
+	content: " — ";
+}
+
+.deg-bachelors > ul.emdash-separated {
+	text-align: center;
 }
 
 @import 'print';
