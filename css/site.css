@@ -132,11 +132,8 @@ main {
   margin: auto;
 }
 
-svg#sprites {
-  visibility: hidden;
-  height: 0;
-  width: 0;
-  position: absolute;
+h2 {
+  border-bottom: 1px solid gray;
 }
 
 h3 {
@@ -146,6 +143,13 @@ h3 {
 }
 h3 small {
   text-align: right;
+}
+
+svg#sprites {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  position: absolute;
 }
 
 @media (min-width: 800px) {
@@ -184,29 +188,10 @@ h3 small {
      -moz-column-break-inside: avoid;
           break-inside: avoid;
 }
-
-h2 {
-  border-bottom: 1px solid gray;
-}
-
-#introduction h1 {
-  padding: 0em;
-}
-#introduction .contact_info {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 1em;
-}
-#introduction .contact_info ul {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  gap: 1em;
-  margin: 0em;
-  -moz-text-align-last: right;
-       text-align-last: right;
-}
-#introduction .contact_info li {
-  display: inline;
+.cols h2, .cols .deg-bachelors {
+  -webkit-column-span: all;
+     -moz-column-span: all;
+          column-span: all;
 }
 
 .comma_separated {

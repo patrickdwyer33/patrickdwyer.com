@@ -12,12 +12,8 @@ main {
 	margin: auto;
 }
 
-// SVG Sprites
-svg#sprites {
-	visibility: hidden;
-	height: 0;
-	width: 0;
-	position: absolute;
+h2 {
+	border-bottom: 1px solid gray;
 }
 
 h3 {
@@ -27,6 +23,14 @@ h3 {
 	small {
 		text-align: right;
 	}
+}
+
+// SVG Sprites
+svg#sprites {
+	visibility: hidden;
+	height: 0;
+	width: 0;
+	position: absolute;
 }
 
 .intro {
@@ -59,30 +63,8 @@ h3 {
 	li {
 		break-inside: avoid;
 	}
-}
-
-h2 {
-	border-bottom: 1px solid gray;
-}
-
-#introduction {
-	h1 {
-		padding: 0em;
-	}
-	.contact_info {
-		display: grid;
-		grid-template-columns: auto auto;
-		gap: 1em;
-		ul {
-			display: grid;
-			grid-template-columns: auto auto auto;
-			gap: 1em;
-			margin: 0em;
-			text-align-last: right;
-		}
-		li {
-			display: inline;
-		}
+	h2, .deg-bachelors {
+		column-span: all;
 	}
 }
 
