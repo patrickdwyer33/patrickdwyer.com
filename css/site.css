@@ -137,20 +137,21 @@ h2 {
   border-bottom: 1px solid gray;
 }
 
-h3 {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 1em;
-}
-h3 small {
-  text-align: right;
-}
-
 svg#sprites {
   visibility: hidden;
   height: 0;
   width: 0;
   position: absolute;
+}
+
+hgroup {
+  display: contents;
+}
+
+ul:nth-of-type(1) {
+  float: right;
+  display: grid;
+  grid-template-columns: 1rem auto;
 }
 
 .comma-separated, .emdash-separated {

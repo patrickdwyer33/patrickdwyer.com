@@ -15,21 +15,22 @@ h2 {
 	border-bottom: 1px solid gray;
 }
 
-h3 {
-	display: grid;
-	grid-template-columns: auto auto;
-	gap: 1em;
-	small {
-		text-align: right;
-	}
-}
-
 // SVG Sprites
 svg#sprites {
 	visibility: hidden;
 	height: 0;
 	width: 0;
 	position: absolute;
+}
+
+hgroup {
+	display: contents;
+}
+
+ul:nth-of-type(1) {
+	float: right;
+	display: grid;
+	grid-template-columns: 1rem auto;
 }
 
 .comma-separated, .emdash-separated {
