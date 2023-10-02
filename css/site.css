@@ -144,8 +144,10 @@ svg#sprites {
   position: absolute;
 }
 
-hgroup {
-  display: contents;
+@media (min-width: 500px) {
+  hgroup:nth-of-type(1) {
+    clear: both;
+  }
 }
 
 ul:nth-of-type(1) {
