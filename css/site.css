@@ -151,7 +151,14 @@ hgroup {
 ul:nth-of-type(1) {
   float: right;
   display: grid;
-  grid-template-columns: 1rem auto;
+  grid-template-columns: 3rem auto;
+  gap: 5px;
+  padding: 0;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+ul:nth-of-type(1) li, ul:nth-of-type(1) a {
+  display: contents;
 }
 
 .comma-separated, .emdash-separated {

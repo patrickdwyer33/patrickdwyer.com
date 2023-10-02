@@ -30,7 +30,13 @@ hgroup {
 ul:nth-of-type(1) {
 	float: right;
 	display: grid;
-	grid-template-columns: 1rem auto;
+	grid-template-columns: 3rem auto;
+	gap: 5px;
+	padding: 0;
+	align-content: center;
+	li, a {
+		display: contents;
+	}
 }
 
 .comma-separated, .emdash-separated {
