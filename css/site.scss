@@ -23,12 +23,6 @@ svg#sprites {
 	position: absolute;
 }
 
-hgroup:nth-of-type(1) {
-	@media (min-width: 900px) {
-		clear: both;
-	}
-}
-
 ul:nth-of-type(1) {
 	float: right;
 	display: grid;
@@ -38,6 +32,19 @@ ul:nth-of-type(1) {
 	align-content: center;
 	li, a {
 		display: contents;
+	}
+	@media (max-width: 800px) {
+		float: none;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		li {
+			display: block;
+			align-content: center;
+		}
+		svg {
+			height: 30px;
+		}
 	}
 }
 
