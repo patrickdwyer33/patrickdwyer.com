@@ -153,48 +153,6 @@ svg#sprites {
   position: absolute;
 }
 
-@media (min-width: 800px) {
-  .intro {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-    place-items: start;
-  }
-}
-.intro ul {
-  display: grid;
-  grid-template-columns: 1.5rem auto;
-  gap: 5px;
-  padding: 0;
-  -ms-flex-line-pack: center;
-      align-content: center;
-}
-.intro ul li, .intro ul a {
-  display: contents;
-}
-
-.three-col {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.cols {
-  -webkit-columns: 10 300px;
-     -moz-columns: 10 300px;
-          columns: 10 300px;
-}
-.cols li {
-  -webkit-column-break-inside: avoid;
-     -moz-column-break-inside: avoid;
-          break-inside: avoid;
-}
-.cols h2, .cols .deg-bachelors {
-  -webkit-column-span: all;
-     -moz-column-span: all;
-          column-span: all;
-}
-
 .comma-separated, .emdash-separated {
   padding: 0;
   -webkit-hyphens: auto;
@@ -211,10 +169,6 @@ svg#sprites {
 
 .emdash-separated li:not(:last-child)::after {
   content: " — ";
-}
-
-.deg-bachelors > ul.emdash-separated {
-  text-align: center;
 }
 
 @media print {

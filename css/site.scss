@@ -32,41 +32,6 @@ svg#sprites {
 	position: absolute;
 }
 
-.intro {
-	@media (min-width: 800px) {
-		display: grid;
-		grid-template-columns: 2fr 1fr;
-		gap: 2rem;
-		place-items: start;
-	}
-	ul {
-		display: grid;
-		grid-template-columns: 1.5rem auto;
-		gap: 5px;
-		padding: 0;
-		align-content: center;
-		li, a {
-			display: contents;
-		}
-	}
-}
-
-.three-col {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 1rem;
-}
-
-.cols {
-	columns: 10 300px;
-	li {
-		break-inside: avoid;
-	}
-	h2, .deg-bachelors {
-		column-span: all;
-	}
-}
-
 .comma-separated, .emdash-separated {
 	padding: 0;
 	hyphens: auto;
@@ -82,10 +47,6 @@ svg#sprites {
 
 .emdash-separated li:not(:last-child)::after {
 	content: " — ";
-}
-
-.deg-bachelors > ul.emdash-separated {
-	text-align: center;
 }
 
 @import 'print';
