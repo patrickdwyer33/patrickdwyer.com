@@ -159,22 +159,6 @@ ul:nth-of-type(1) li, ul:nth-of-type(1) a {
 @media (max-width: 800px) {
   ul:nth-of-type(1) {
     float: none;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  ul:nth-of-type(1) li {
-    display: block;
-    -ms-flex-line-pack: center;
-        align-content: center;
-  }
-  ul:nth-of-type(1) svg {
-    height: 30px;
   }
 }
 

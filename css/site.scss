@@ -35,16 +35,6 @@ ul:nth-of-type(1) {
 	}
 	@media (max-width: 800px) {
 		float: none;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		li {
-			display: block;
-			align-content: center;
-		}
-		svg {
-			height: 30px;
-		}
 	}
 }
 
