@@ -80,10 +80,9 @@ svg#sprites {
 		}
 		h1 {
 			margin: 0;
-			display: flex;
-			flex-wrap: nowrap;
 			justify-self: start;
 			align-self: center;
+			break-inside: avoid;
 		}
 		p {
 			grid-row: 2 / 3;
