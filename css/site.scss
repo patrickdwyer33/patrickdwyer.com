@@ -79,10 +79,11 @@ svg#sprites {
 			display: contents;
 		}
 		h1 {
-			width: max-content;
+			margin: 0;
+			display: flex;
+			flex-wrap: nowrap;
 			justify-self: start;
 			align-self: center;
-			margin: 0;
 		}
 		p {
 			grid-row: 2 / 3;
