@@ -70,8 +70,8 @@ svg#sprites {
 	}
 	@media (max-width: 700px) {
 		display: grid;
-		grid-template-columns: 1fr 2fr;
-		row-gap: var(--content-gap);
+		grid-template-columns: 1fr 2.5fr;
+		gap: var(--content-gap);
 		img {
 			margin: 0;
 		}
@@ -80,8 +80,9 @@ svg#sprites {
 		}
 		h1 {
 			width: max-content;
-			justify-self: center;
+			justify-self: start;
 			align-self: center;
+			margin: 0;
 		}
 		p {
 			grid-row: 2 / 3;
