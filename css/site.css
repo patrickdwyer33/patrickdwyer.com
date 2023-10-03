@@ -175,14 +175,13 @@ footer ul li, footer ul a {
 }
 @media (max-width: 700px) {
   .intro {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    display: inline-block;
   }
-  .intro hgroup {
-    display: block;
+  .intro h1 {
+    display: inline-block;
   }
 }
 .intro img {
