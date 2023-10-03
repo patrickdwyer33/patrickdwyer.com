@@ -155,6 +155,10 @@ h3 small {
   margin-left: auto;
 }
 
+small {
+  white-space: nowrap;
+}
+
 svg#sprites {
   visibility: hidden;
   height: 0;
