@@ -141,6 +141,20 @@ h2 {
   border-bottom: 1px solid gray;
 }
 
+h3 {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 1em;
+     -moz-column-gap: 1em;
+          column-gap: 1em;
+}
+h3 small {
+  margin-left: auto;
+}
+
 svg#sprites {
   visibility: hidden;
   height: 0;
@@ -148,14 +162,37 @@ svg#sprites {
   position: absolute;
 }
 
+br.mobile {
+  display: none;
+}
+@media (max-width: 850px) {
+  br.mobile {
+    display: unset;
+  }
+  br.mobile::after {
+    content: "    ";
+  }
+}
+
+br.ipad {
+  display: none;
+}
+@media (max-width: 740px) {
+  br.ipad {
+    display: unset;
+  }
+}
+
+@media (max-width: 625px) {
+  .no-mobile {
+    display: none;
+  }
+}
 .contact-info {
   padding: 0.5em 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-column-gap: 1em;
      -moz-column-gap: 1em;
           column-gap: 1em;
@@ -164,6 +201,9 @@ svg#sprites {
   margin: 0 auto;
   position: sticky;
   top: 0;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 .contact-info a {
   display: -webkit-box;
@@ -187,15 +227,8 @@ svg#sprites {
   height: 1.5em;
   fill: currentColor;
 }
-@media (max-width: 625px) {
-  .contact-info {
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-  }
-  .contact-info .no-small {
-    display: none;
-  }
+.contact-info span {
+  display: none;
 }
 
 .intro {
@@ -237,6 +270,52 @@ svg#sprites {
   .intro p {
     grid-row: 2/3;
     grid-column: 1/3;
+  }
+}
+
+.three-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  -webkit-column-gap: 1em;
+     -moz-column-gap: 1em;
+          column-gap: 1em;
+}
+@media (max-width: 700px) {
+  .three-cols {
+    display: unset;
+  }
+}
+
+.exp-cols {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.exp-cols ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -webkit-column-gap: 1.5em;
+     -moz-column-gap: 1.5em;
+          column-gap: 1.5em;
+}
+.exp-cols span.italics {
+  display: contents;
+  font-style: italic;
+}
+@media (max-width: 700px) {
+  .exp-cols ul {
+    display: unset;
+  }
+}
+
+@media (max-width: 625px) {
+  .edu-cols span.break-mobile::before {
+    content: "\a";
+    white-space: pre;
   }
 }
 

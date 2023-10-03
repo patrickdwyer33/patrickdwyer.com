@@ -19,6 +19,17 @@ h2 {
 	border-bottom: 1px solid gray;
 }
 
+h3 {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	align-items: center;
+	column-gap: 1em;
+
+	small {
+		margin-left: auto;
+	}
+}
+
 // SVG Sprites
 svg#sprites {
 	visibility: hidden;
@@ -27,16 +38,39 @@ svg#sprites {
 	position: absolute;
 }
 
+br.mobile {
+	display: none;
+	@media (max-width: 850px) {
+		display: unset;
+		&::after {
+			content: "    ";
+		}
+	}
+}
+
+br.ipad {
+	display: none;
+	@media (max-width: 740px) {
+			display: unset;
+		}
+}
+
+@media (max-width: 625px) {
+	.no-mobile {
+		display: none;
+	}
+}
+
 .contact-info {
 	padding: 0.5em 0;
 	display: flex;
-	justify-content: center;
 	column-gap: 1em;
 	background-color: hsl(205, 32%, 48%);
 	max-width: var(--page-width);
 	margin: 0 auto;
 	position: sticky;
 	top: 0;
+	justify-content: space-evenly;
 	a {
 		display: flex;
 		column-gap: 0.25em;
@@ -52,11 +86,8 @@ svg#sprites {
 		height: 1.5em;
 		fill: currentColor;
 	}
-	@media (max-width: 625px) {
-		justify-content: space-evenly;
-		.no-small {
-			display: none;
-		}
+	span {
+		display: none;
 	}
 }
 
@@ -87,6 +118,43 @@ svg#sprites {
 		p {
 			grid-row: 2 / 3;
 			grid-column: 1 / 3;
+		}
+	}
+}
+
+.three-cols {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 1em;
+	@media (max-width: 700px) {
+		display: unset;
+	}
+}
+
+.exp-cols {
+	display: flex;
+	flex-direction: column;
+	ul {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: 1.5em;
+	}
+	span.italics {
+		display: contents;
+		font-style: italic;
+	}
+	@media (max-width: 700px) {
+		ul {
+			display: unset;
+		}
+	}
+}
+
+.edu-cols {
+	@media (max-width: 625px) {
+		span.break-mobile::before {
+			content: "\A";
+			white-space: pre;
 		}
 	}
 }
