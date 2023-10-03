@@ -27,22 +27,6 @@ svg#sprites {
 	position: absolute;
 }
 
-footer ul {
-	float: right;
-	display: grid;
-	grid-template-columns: 3rem auto;
-	gap: 5px;
-	padding: 0;
-	align-content: center;
-	li, a {
-		display: contents;
-	}
-	@media (max-width: 800px) {
-		float: none;
-		justify-content: center;
-	}
-}
-
 .contact-info {
 	padding: 0.5em 0;
 	display: flex;
@@ -68,11 +52,21 @@ footer ul {
 		height: 1.5em;
 		fill: currentColor;
 	}
+	@media (max-width: 625px) {
+		justify-content: space-evenly;
+		.no-small {
+			display: none;
+		}
+	}
 }
 
 .intro {
 	display: grid;
-
+	grid-template-columns: 1fr 3fr;
+	column-gap: 1em;
+	hgroup {
+		justify-self: center;
+	}
 }
 
 .comma-separated, .emdash-separated {
