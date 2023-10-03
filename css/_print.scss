@@ -1,10 +1,7 @@
 @media print {
-    @page {
-            margin: 0;
-    }
-
     html {
         font-size: 10pt;
+        print-color-adjust: exact;
     }
 
     main {

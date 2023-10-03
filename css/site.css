@@ -331,11 +331,10 @@ span.italics {
 }
 
 @media print {
-  @page {
-    margin: 0;
-  }
   html {
     font-size: 10pt;
+    -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
   }
   main {
     width: 7.5in;
