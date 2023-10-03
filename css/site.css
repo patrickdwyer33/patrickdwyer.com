@@ -219,15 +219,21 @@ svg#sprites {
   .intro {
     display: grid;
     grid-template-columns: auto 1fr;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    row-gap: var(--content-gap);
+  }
+  .intro img {
+    margin: 0;
   }
   .intro hgroup {
     display: contents;
   }
   .intro h1 {
-    text-align: center;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    justify-self: center;
+    -ms-flex-item-align: center;
+        align-self: center;
   }
   .intro p {
     grid-row: 2/3;

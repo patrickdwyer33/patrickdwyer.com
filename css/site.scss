@@ -71,12 +71,17 @@ svg#sprites {
 	@media (max-width: 700px) {
 		display: grid;
 		grid-template-columns: auto 1fr;
-		justify-content: center;
+		row-gap: var(--content-gap);
+		img {
+			margin: 0;
+		}
 		hgroup {
 			display: contents;
 		}
 		h1 {
-			text-align: center;
+			width: max-content;
+			justify-self: center;
+			align-self: center;
 		}
 		p {
 			grid-row: 2 / 3;
