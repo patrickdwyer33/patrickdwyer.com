@@ -232,9 +232,7 @@ svg#sprites {
     justify-self: start;
     -ms-flex-item-align: center;
         align-self: center;
-    -webkit-column-break-inside: avoid;
-       -moz-column-break-inside: avoid;
-            break-inside: avoid;
+    white-space: nowrap;
   }
   .intro p {
     grid-row: 2/3;

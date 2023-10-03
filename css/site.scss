@@ -82,7 +82,7 @@ svg#sprites {
 			margin: 0;
 			justify-self: start;
 			align-self: center;
-			break-inside: avoid;
+			white-space: nowrap;
 		}
 		p {
 			grid-row: 2 / 3;
