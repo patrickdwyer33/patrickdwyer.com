@@ -122,28 +122,23 @@ sup {
   top: -0.5em;
 }
 
+html {
+  --page-width: 1000px;
+}
+
 body {
   background-color: gray;
 }
 
 main {
   background-color: white;
-  max-width: 1000px;
+  max-width: var(--page-width);
   padding: 2em;
   margin: auto;
 }
 
 h2 {
   border-bottom: 1px solid gray;
-}
-
-h3 {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 1em;
-}
-h3 small {
-  text-align: right;
 }
 
 svg#sprites {
@@ -153,46 +148,69 @@ svg#sprites {
   position: absolute;
 }
 
-@media (min-width: 800px) {
-  .intro {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-    place-items: start;
-  }
-}
-.intro ul {
+footer ul {
+  float: right;
   display: grid;
-  grid-template-columns: 1.5rem auto;
+  grid-template-columns: 3rem auto;
   gap: 5px;
   padding: 0;
   -ms-flex-line-pack: center;
       align-content: center;
 }
-.intro ul li, .intro ul a {
+footer ul li, footer ul a {
   display: contents;
 }
+@media (max-width: 800px) {
+  footer ul {
+    float: none;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
 
-.three-col {
+.contact-info {
+  padding: 0.5em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 1em;
+     -moz-column-gap: 1em;
+          column-gap: 1em;
+  background-color: hsl(20, 16%, 15%);
+  max-width: var(--page-width);
+  margin: 0 auto;
+  position: sticky;
+  top: 0;
+}
+.contact-info a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 0.25em;
+     -moz-column-gap: 0.25em;
+          column-gap: 0.25em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 1;
+  color: hsla(0, 0%, 100%, 0.7);
+  -webkit-transition: color 400ms;
+  transition: color 400ms;
+}
+.contact-info a:hover, .contact-info a:active, .contact-info a:focus {
+  color: white;
+}
+.contact-info svg {
+  height: 1.5em;
+  fill: currentColor;
+}
+
+.intro {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.cols {
-  -webkit-columns: 10 300px;
-     -moz-columns: 10 300px;
-          columns: 10 300px;
-}
-.cols li {
-  -webkit-column-break-inside: avoid;
-     -moz-column-break-inside: avoid;
-          break-inside: avoid;
-}
-.cols h2, .cols .deg-bachelors {
-  -webkit-column-span: all;
-     -moz-column-span: all;
-          column-span: all;
 }
 
 .comma-separated, .emdash-separated {
@@ -211,10 +229,6 @@ svg#sprites {
 
 .emdash-separated li:not(:last-child)::after {
   content: " — ";
-}
-
-.deg-bachelors > ul.emdash-separated {
-  text-align: center;
 }
 
 @media print {
