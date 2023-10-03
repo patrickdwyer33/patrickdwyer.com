@@ -170,7 +170,7 @@ footer ul li, footer ul a {
 }
 
 .contact-info {
-  padding: 0.25em 0;
+  padding: 0.5em 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -183,6 +183,8 @@ footer ul li, footer ul a {
   background-color: hsl(20, 16%, 15%);
   max-width: var(--page-width);
   margin: 0 auto;
+  position: sticky;
+  top: 0;
 }
 .contact-info a {
   display: -webkit-box;
@@ -196,6 +198,11 @@ footer ul li, footer ul a {
           align-items: center;
   line-height: 1;
   color: hsla(0, 0%, 100%, 0.7);
+  -webkit-transition: color 400ms;
+  transition: color 400ms;
+}
+.contact-info a:hover, .contact-info a:active, .contact-info a:focus {
+  color: white;
 }
 .contact-info svg {
   height: 1.5em;
