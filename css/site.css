@@ -169,19 +169,16 @@ svg#sprites {
 br.mobile {
   display: none;
 }
-@media (max-width: 850px) {
+@media screen and (max-width: 850px) {
   br.mobile {
     display: unset;
-  }
-  br.mobile::after {
-    content: "    ";
   }
 }
 
 br.ipad {
   display: none;
 }
-@media (max-width: 740px) {
+@media screen and (max-width: 740px) {
   br.ipad {
     display: unset;
   }
@@ -252,7 +249,7 @@ span.italics {
 .intro img {
   border-radius: 50%;
 }
-@media (max-width: 700px) {
+@media screen and (max-width: 700px) {
   .intro {
     display: grid;
     grid-template-columns: 1fr 2.5fr;
@@ -284,7 +281,7 @@ span.italics {
      -moz-column-gap: 1em;
           column-gap: 1em;
 }
-@media (max-width: 700px) {
+@media screen and (max-width: 700px) {
   .three-cols {
     display: unset;
   }
@@ -306,7 +303,7 @@ span.italics {
      -moz-column-gap: 1.5em;
           column-gap: 1.5em;
 }
-@media (max-width: 700px) {
+@media screen and (max-width: 700px) {
   .exp-cols ul {
     display: unset;
   }
@@ -339,5 +336,8 @@ span.italics {
   main {
     width: 7.5in;
     height: 10in;
+  }
+  br {
+    display: none;
   }
 }
