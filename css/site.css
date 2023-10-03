@@ -183,11 +183,11 @@ br.ipad {
   }
 }
 
-@media (max-width: 625px) {
-  .no-mobile {
-    display: none;
-  }
+span.italics {
+  display: contents;
+  font-style: italic;
 }
+
 .contact-info {
   padding: 0.5em 0;
   display: -webkit-box;
@@ -302,20 +302,9 @@ br.ipad {
      -moz-column-gap: 1.5em;
           column-gap: 1.5em;
 }
-.exp-cols span.italics {
-  display: contents;
-  font-style: italic;
-}
 @media (max-width: 700px) {
   .exp-cols ul {
     display: unset;
-  }
-}
-
-@media (max-width: 625px) {
-  .edu-cols span.break-mobile::before {
-    content: "\a";
-    white-space: pre;
   }
 }
 
