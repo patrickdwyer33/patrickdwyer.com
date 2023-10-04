@@ -381,6 +381,11 @@ span.italics {
 .edu-cols .coursework .math li.card-showing, .edu-cols .coursework .cs li.card-showing, .edu-cols .coursework .other li.card-showing {
   color: black;
 }
+@media screen and (max-width: 725px) {
+  .edu-cols .coursework {
+    display: revert;
+  }
+}
 
 .comma-separated, .emdash-separated {
   padding: 0;

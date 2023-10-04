@@ -213,6 +213,9 @@ span.italics {
 				color: black;
 			}
 		}
+		@media screen and (max-width: 725px) {
+			display: revert;
+		}
 	}
 }
 
