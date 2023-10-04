@@ -1,23 +1,31 @@
 @media print {
     @page {
-        margin: 2cm 2cm 2cm 2cm;
+        margin: 2cm 2cm;
     }
 
     html {
         font-size: 10pt;
-        print-color-adjust: exact;
     }
 
     body {
-        width: 100%;   
+        width: 100%;
+        height: fit-content;
     }
 
-    main {
-        padding: 0.65rem 0;
-    }
+    // main {
+    // 
+    // }
 
     br {
         display: none;
+    }
+
+    footer p {
+        padding: 0.5rem 0;
+    }
+
+    .contact-info {
+        padding: 0.5rem 0;
     }
 
     .print {

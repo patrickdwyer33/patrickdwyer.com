@@ -188,9 +188,10 @@ span.italics {
 		font-style: normal;
 		text-align: center;
 		@media screen and (max-width: 875px) {
-			padding: unset;
+			padding: revert;
+			list-style-type: none;
 			li {
-				display: unset;
+				display: revert;
 				&:not(:last-child)::after {
 					content: "";
 				}

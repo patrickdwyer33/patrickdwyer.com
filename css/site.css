@@ -458,10 +458,11 @@ span.italics {
 }
 @media screen and (max-width: 875px) {
   .edu-cols ul.bachelors {
-    padding: unset;
+    padding: revert;
+    list-style-type: none;
   }
   .edu-cols ul.bachelors li {
-    display: unset;
+    display: revert;
   }
   .edu-cols ul.bachelors li:not(:last-child)::after {
     content: "";
@@ -538,21 +539,25 @@ span.italics {
 
 @media print {
   @page {
-    margin: 2cm 2cm 2cm 2cm;
+    margin: 2cm 2cm;
   }
   html {
     font-size: 10pt;
-    -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
   }
   body {
     width: 100%;
-  }
-  main {
-    padding: 0.65rem 0;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
   br {
     display: none;
+  }
+  footer p {
+    padding: 0.5rem 0;
+  }
+  .contact-info {
+    padding: 0.5rem 0;
   }
   .print {
     display: unset;
