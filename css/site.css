@@ -378,6 +378,9 @@ span.italics {
 .edu-cols .coursework .math .card-showing, .edu-cols .coursework .cs .card-showing, .edu-cols .coursework .other .card-showing {
   display: revert;
 }
+.edu-cols .coursework .math h4.card-showing::before, .edu-cols .coursework .cs h4.card-showing::before, .edu-cols .coursework .other h4.card-showing::before {
+  content: "⏷  ";
+}
 .edu-cols .coursework .math li.card-showing, .edu-cols .coursework .cs li.card-showing, .edu-cols .coursework .other li.card-showing {
   color: black;
 }

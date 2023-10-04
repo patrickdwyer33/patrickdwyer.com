@@ -186,7 +186,7 @@ span.italics {
 				margin-bottom: 0;
 	
 				&::before {
-					content: "\0023F5\0000a0\0000a0"
+					content: "\0023F5\0000a0\0000a0";
 				}
 			}
 	
@@ -198,15 +198,17 @@ span.italics {
 				display: none;
 			}
 	
-			&:hover,
-			&:active,
-			&:focus {
+			&:hover, &:active, &:focus {
 				border-color: black;
 				color: black;
 			}
 	
 			.card-showing {
 				display: revert;
+			}
+
+			h4.card-showing::before {
+				content: "\0023F7\0000a0\0000a0";
 			}
 	
 			li.card-showing {
