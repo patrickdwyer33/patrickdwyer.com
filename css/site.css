@@ -272,15 +272,15 @@ span.italics {
   }
 }
 
-.three-cols {
+.skills-cols {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   -webkit-column-gap: 1em;
      -moz-column-gap: 1em;
           column-gap: 1em;
 }
-@media screen and (max-width: 650px) {
-  .three-cols {
+@media screen and (max-width: 725px) {
+  .skills-cols {
     display: revert;
   }
 }
@@ -320,7 +320,7 @@ span.italics {
 .edu-cols ul.bachelors li:last-child {
   margin-left: auto;
 }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 875px) {
   .edu-cols ul.bachelors {
     display: revert;
     list-style-type: square;
@@ -333,8 +333,53 @@ span.italics {
     margin-left: revert;
   }
 }
-.edu-cols .math h4::before, .edu-cols .cs h4::before, .edu-cols .other h4::before {
-  content: "> ";
+.edu-cols .coursework {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.edu-cols .coursework .math, .edu-cols .coursework .cs, .edu-cols .coursework .other {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  border: 2px solid grey;
+  border-radius: 10px;
+  padding: 0.25em 0.5em;
+  -webkit-transition: border-color 200ms;
+  transition: border-color 200ms;
+  -webkit-transition: color 200ms;
+  transition: color 200ms;
+  color: grey;
+  margin-bottom: var(--content-gap);
+}
+.edu-cols .coursework .math h4, .edu-cols .coursework .cs h4, .edu-cols .coursework .other h4 {
+  margin-bottom: 0;
+}
+.edu-cols .coursework .math h4::before, .edu-cols .coursework .cs h4::before, .edu-cols .coursework .other h4::before {
+  content: "⏵  ";
+}
+.edu-cols .coursework .math ul, .edu-cols .coursework .cs ul, .edu-cols .coursework .other ul {
+  list-style-position: inside;
+}
+.edu-cols .coursework .math :not(h4), .edu-cols .coursework .cs :not(h4), .edu-cols .coursework .other :not(h4) {
+  display: none;
+}
+.edu-cols .coursework .math:hover, .edu-cols .coursework .math:active, .edu-cols .coursework .math:focus, .edu-cols .coursework .cs:hover, .edu-cols .coursework .cs:active, .edu-cols .coursework .cs:focus, .edu-cols .coursework .other:hover, .edu-cols .coursework .other:active, .edu-cols .coursework .other:focus {
+  border-color: black;
+  color: black;
+}
+.edu-cols .coursework .math .card-showing, .edu-cols .coursework .cs .card-showing, .edu-cols .coursework .other .card-showing {
+  display: revert;
+}
+.edu-cols .coursework .math li.card-showing, .edu-cols .coursework .cs li.card-showing, .edu-cols .coursework .other li.card-showing {
+  color: black;
 }
 
 .comma-separated, .emdash-separated {

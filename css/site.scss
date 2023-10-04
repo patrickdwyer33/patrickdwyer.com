@@ -118,11 +118,11 @@ span.italics {
 	}
 }
 
-.three-cols {
+.skills-cols {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	column-gap: 1em;
-	@media screen and (max-width: 650px) {
+	@media screen and (max-width: 725px) {
 		display: revert;
 	}
 }
@@ -155,7 +155,7 @@ span.italics {
 		li:last-child {
 			margin-left: auto;
 		}
-		@media screen and (max-width: 650px) {
+		@media screen and (max-width: 875px) {
 			display: revert;
 			list-style-type: square;
 			padding-left: revert;
@@ -167,14 +167,56 @@ span.italics {
 			}
 		}
 	}
-	.math, .cs, .other {
-		h4 {
-			&::before {
-				content: ">\0000a0"
+	.coursework {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: flex-start;
+		.math, .cs, .other {
+			flex-grow: 1;
+			flex-basis: 0;
+			border: 2px solid grey;
+			border-radius: 10px;
+			padding: 0.25em 0.5em;
+			transition: border-color 200ms;
+			transition: color 200ms;
+			color: grey;
+			margin-bottom: var(--content-gap);
+	
+			h4 {
+				margin-bottom: 0;
+	
+				&::before {
+					content: "\0023F5\0000a0\0000a0"
+				}
+			}
+	
+			ul {
+				list-style-position: inside;
+			}
+	
+			:not(h4) {
+				display: none;
+			}
+	
+			&:hover,
+			&:active,
+			&:focus {
+				border-color: black;
+				color: black;
+			}
+	
+			.card-showing {
+				display: revert;
+			}
+	
+			li.card-showing {
+				color: black;
 			}
 		}
 	}
 }
+
+
 
 .comma-separated, .emdash-separated {
 	padding: 0;
