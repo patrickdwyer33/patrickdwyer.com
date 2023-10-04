@@ -44,14 +44,7 @@ svg#sprites {
 
 br.mobile {
 	display: none;
-	@media screen and (max-width: 850px) {
-		display: unset;
-	}
-}
-
-br.ipad {
-	display: none;
-	@media screen and (max-width: 740px) {
+	@media screen and (max-width: 650px) {
 		display: unset;
 	}
 }
@@ -70,7 +63,7 @@ span.italics {
 	margin: 0 auto;
 	position: sticky;
 	top: 0;
-	justify-content: space-evenly;
+	justify-content: center;
 	a {
 		display: flex;
 		column-gap: 0.25em;
@@ -86,8 +79,11 @@ span.italics {
 		height: 1.5em;
 		fill: currentColor;
 	}
-	span {
-		display: none;
+	@media screen and (max-width: 650px) {
+		justify-content: space-evenly;
+		span {
+			display: none;
+		}
 	}
 }
 
@@ -99,7 +95,7 @@ span.italics {
 	img {
 		border-radius: 50%;
 	}
-	@media screen and (max-width: 700px) {
+	@media screen and (max-width: 650px) {
 		display: grid;
 		grid-template-columns: 1fr 2.5fr;
 		gap: var(--content-gap);
@@ -126,7 +122,7 @@ span.italics {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	column-gap: 1em;
-	@media screen and (max-width: 700px) {
+	@media screen and (max-width: 650px) {
 		display: unset;
 	}
 }
@@ -139,7 +135,7 @@ span.italics {
 		grid-template-columns: 1fr 1fr;
 		column-gap: 1.5em;
 	}
-	@media screen and (max-width: 700px) {
+	@media screen and (max-width: 650px) {
 		ul {
 			display: unset;
 		}

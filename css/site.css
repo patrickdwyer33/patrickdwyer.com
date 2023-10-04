@@ -169,17 +169,8 @@ svg#sprites {
 br.mobile {
   display: none;
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 650px) {
   br.mobile {
-    display: unset;
-  }
-}
-
-br.ipad {
-  display: none;
-}
-@media screen and (max-width: 740px) {
-  br.ipad {
     display: unset;
   }
 }
@@ -202,9 +193,9 @@ span.italics {
   margin: 0 auto;
   position: sticky;
   top: 0;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .contact-info a {
   display: -webkit-box;
@@ -228,8 +219,15 @@ span.italics {
   height: 1.5em;
   fill: currentColor;
 }
-.contact-info span {
-  display: none;
+@media screen and (max-width: 650px) {
+  .contact-info {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .contact-info span {
+    display: none;
+  }
 }
 
 .intro {
@@ -249,7 +247,7 @@ span.italics {
 .intro img {
   border-radius: 50%;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 650px) {
   .intro {
     display: grid;
     grid-template-columns: 1fr 2.5fr;
@@ -281,7 +279,7 @@ span.italics {
      -moz-column-gap: 1em;
           column-gap: 1em;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 650px) {
   .three-cols {
     display: unset;
   }
@@ -303,7 +301,7 @@ span.italics {
      -moz-column-gap: 1.5em;
           column-gap: 1.5em;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 650px) {
   .exp-cols ul {
     display: unset;
   }
