@@ -45,7 +45,7 @@ svg#sprites {
 br.mobile {
 	display: none;
 	@media screen and (max-width: 650px) {
-		display: unset;
+		display: revert;
 	}
 }
 
@@ -123,7 +123,7 @@ span.italics {
 	grid-template-columns: repeat(3, 1fr);
 	column-gap: 1em;
 	@media screen and (max-width: 650px) {
-		display: unset;
+		display: revert;
 	}
 }
 
@@ -137,14 +137,44 @@ span.italics {
 	}
 	@media screen and (max-width: 650px) {
 		ul {
-			display: unset;
+			display: revert;
 		}
 	}
 }
 
-// .edu-cols {
-	
-// }
+.edu-cols {
+	ul.bachelors {
+		display: flex;
+		list-style-type: none;
+		padding-left: 0;
+		li:first-child {
+			&::after {
+				content: "\0000a0—\0000a0";
+			}
+		}
+		li:last-child {
+			margin-left: auto;
+		}
+		@media screen and (max-width: 650px) {
+			display: revert;
+			list-style-type: square;
+			padding-left: revert;
+			li:first-child::after {
+				content: revert;
+			}
+			li:last-child {
+				margin-left: revert;
+			}
+		}
+	}
+	.math, .cs, .other {
+		h4 {
+			&::before {
+				content: ">\0000a0"
+			}
+		}
+	}
+}
 
 .comma-separated, .emdash-separated {
 	padding: 0;

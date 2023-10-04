@@ -171,7 +171,7 @@ br.mobile {
 }
 @media screen and (max-width: 650px) {
   br.mobile {
-    display: unset;
+    display: revert;
   }
 }
 
@@ -281,7 +281,7 @@ span.italics {
 }
 @media screen and (max-width: 650px) {
   .three-cols {
-    display: unset;
+    display: revert;
   }
 }
 
@@ -303,8 +303,38 @@ span.italics {
 }
 @media screen and (max-width: 650px) {
   .exp-cols ul {
-    display: unset;
+    display: revert;
   }
+}
+
+.edu-cols ul.bachelors {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  padding-left: 0;
+}
+.edu-cols ul.bachelors li:first-child::after {
+  content: " — ";
+}
+.edu-cols ul.bachelors li:last-child {
+  margin-left: auto;
+}
+@media screen and (max-width: 650px) {
+  .edu-cols ul.bachelors {
+    display: revert;
+    list-style-type: square;
+    padding-left: revert;
+  }
+  .edu-cols ul.bachelors li:first-child::after {
+    content: revert;
+  }
+  .edu-cols ul.bachelors li:last-child {
+    margin-left: revert;
+  }
+}
+.edu-cols .math h4::before, .edu-cols .cs h4::before, .edu-cols .other h4::before {
+  content: "> ";
 }
 
 .comma-separated, .emdash-separated {
