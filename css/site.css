@@ -393,9 +393,6 @@ span.italics {
 .edu-cols .coursework .math h4::before, .edu-cols .coursework .cs h4::before, .edu-cols .coursework .other h4::before {
   content: "⏵  ";
 }
-.edu-cols .coursework .math ul, .edu-cols .coursework .cs ul, .edu-cols .coursework .other ul {
-  list-style-position: inside;
-}
 .edu-cols .coursework .math :not(h4), .edu-cols .coursework .cs :not(h4), .edu-cols .coursework .other :not(h4) {
   display: none;
 }
