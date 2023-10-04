@@ -1,6 +1,6 @@
 @media print {
     @page {
-        margin: calc(2cm - 2em) 2cm 2cm 2cm;
+        margin: 2cm 2cm 2cm 2cm;
     }
 
     html {
@@ -13,14 +13,20 @@
     }
 
     main {
-        padding: 0;
+        padding: 0.65rem 0;
     }
 
     br {
         display: none;
     }
 
-    .intro {
-        padding-top: 2em;
+    .print {
+        display: unset;
     }
+
+    .no-print {
+        display: none;
+    }
+
+
 }

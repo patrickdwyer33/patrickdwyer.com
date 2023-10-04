@@ -34,6 +34,28 @@ small {
 	white-space: nowrap;
 }
 
+footer {
+	padding: 0.5em 0;
+	background-color: hsl(205, 32%, 48%);
+	margin: 0 auto;
+	display: flex;
+	max-width: var(--page-width);
+	p {
+		margin: auto;
+		line-height: 1;
+		color: hsl(0 0% 100% / 0.7);
+	}
+	a {
+		line-height: 1;
+		color: hsl(0 0% 100% / 0.7);
+		transition: color 400ms;
+	
+		&:hover, &:active, &:focus {
+			color: white;
+		}
+	}
+}
+
 // SVG Sprites
 svg#sprites {
 	visibility: hidden;
@@ -52,6 +74,10 @@ br.mobile {
 span.italics {
 	display: contents;
 	font-style: italic;
+}
+
+.print {
+	display: none;
 }
 
 .contact-info {
