@@ -1,14 +1,32 @@
 @media print {
     @page {
-            margin: 0;
+        margin: 2cm 2cm 2cm 2cm;
     }
 
     html {
         font-size: 10pt;
+        print-color-adjust: exact;
+    }
+
+    body {
+        width: 100%;   
     }
 
     main {
-        width: 7.5in;
-        height: 10in;
+        padding: 0.65rem 0;
     }
+
+    br {
+        display: none;
+    }
+
+    .print {
+        display: unset;
+    }
+
+    .no-print {
+        display: none;
+    }
+
+
 }

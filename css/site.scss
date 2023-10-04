@@ -1,14 +1,25 @@
 @use 'boilerplate' as *;
 
+@use 'fonts' as *;
+
+html {
+	--page-width: 1000px;
+	font-family: "Roboto";
+}
+
 body {
 	background-color: gray;
 }
 
 main {
 	background-color: white;
-	max-width: 1000px;
+	max-width: var(--page-width);
 	padding: 2em;
 	margin: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Roboto_Condensed";
 }
 
 h2 {
@@ -17,10 +28,42 @@ h2 {
 
 h3 {
 	display: grid;
-	grid-template-columns: auto auto;
-	gap: 1em;
+	grid-template-columns: 3fr 1fr;
+	align-items: center;
+	column-gap: 1em;
+
 	small {
-		text-align: right;
+		margin-left: auto;
+	}
+}
+
+li, p, a {
+	font-weight: 200;
+}
+
+small {
+	white-space: nowrap;
+}
+
+footer {
+	padding: 0.5em 0;
+	background-color: hsl(205, 32%, 48%);
+	margin: 0 auto;
+	display: flex;
+	max-width: var(--page-width);
+	p {
+		margin: auto;
+		line-height: 1;
+		color: hsl(0 0% 100% / 0.7);
+	}
+	a {
+		line-height: 1;
+		color: hsl(0 0% 100% / 0.7);
+		transition: color 400ms;
+	
+		&:hover, &:active, &:focus {
+			color: white;
+		}
 	}
 }
 
@@ -32,44 +75,178 @@ svg#sprites {
 	position: absolute;
 }
 
-.intro {
-	@media (min-width: 800px) {
-		display: grid;
-		grid-template-columns: 2fr 1fr;
-		gap: 2rem;
-		place-items: start;
+br.mobile {
+	display: none;
+	@media screen and (max-width: 650px) {
+		display: revert;
 	}
-	ul {
-		display: grid;
-		grid-template-columns: 1.5rem auto;
-		gap: 5px;
-		padding: 0;
-		align-content: center;
-		li, a {
-			display: contents;
+}
+
+span.italics {
+	display: contents;
+	font-style: italic;
+}
+
+.print {
+	display: none;
+}
+
+.contact-info {
+	padding: 0.5em 0;
+	display: flex;
+	column-gap: 1em;
+	background-color: hsl(205, 32%, 48%);
+	max-width: var(--page-width);
+	margin: 0 auto;
+	position: sticky;
+	top: 0;
+	justify-content: center;
+	a {
+		display: flex;
+		column-gap: 0.25em;
+		align-items: center;
+		line-height: 1;
+		color: hsl(0 0% 100% / 0.7);
+		transition: color 400ms;
+		&:hover, &:active, &:focus {
+			color: white;
+		}
+	}
+	svg {
+		height: 1.5em;
+		fill: currentColor;
+	}
+	@media screen and (max-width: 650px) {
+		justify-content: space-evenly;
+		span {
+			display: none;
 		}
 	}
 }
 
-.three-col {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 1rem;
+.intro {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	column-gap: 1em;
+	img {
+		border-radius: 50%;
+	}
+	@media screen and (max-width: 650px) {
+		display: grid;
+		grid-template-columns: 1fr 2.5fr;
+		gap: var(--content-gap);
+		img {
+			margin: 0;
+		}
+		hgroup {
+			display: contents;
+		}
+		h1 {
+			margin: 0;
+			justify-self: start;
+			align-self: center;
+			white-space: nowrap;
+		}
+		p {
+			grid-row: 2 / 3;
+			grid-column: 1 / 3;
+		}
+	}
 }
 
-.cols {
-	columns: 10 300px;
-	li {
-		break-inside: avoid;
-	}
-	h2, .deg-bachelors {
-		column-span: all;
+.skills-cols {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 1em;
+	@media screen and (max-width: 725px) {
+		display: revert;
 	}
 }
+
+.exp-cols {
+	display: flex;
+	flex-direction: column;
+	ul {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: 1.5em;
+	}
+	@media screen and (max-width: 650px) {
+		ul {
+			display: revert;
+		}
+	}
+}
+
+.edu-cols {
+	ul.bachelors {
+		font-style: normal;
+		text-align: center;
+		@media screen and (max-width: 875px) {
+			padding: unset;
+			li {
+				display: unset;
+				&:not(:last-child)::after {
+					content: "";
+				}
+			}
+		}
+	}
+	.coursework {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: flex-start;
+		.math, .cs, .other {
+			flex-grow: 1;
+			flex-basis: 0;
+			border: 2px solid grey;
+			border-radius: 10px;
+			padding: 0.25em 0.5em;
+			transition: border-color 200ms;
+			transition: color 200ms;
+			color: grey;
+			margin-bottom: var(--content-gap);
+	
+			h4 {
+				margin-bottom: 0;
+	
+				&::before {
+					content: "\0023F5\0000a0\0000a0";
+				}
+			}
+	
+			:not(h4) {
+				display: none;
+			}
+	
+			&:hover, &:active, &:focus {
+				border-color: black;
+				color: black;
+			}
+	
+			.card-showing {
+				display: revert;
+			}
+
+			h4.card-showing::before {
+				content: "\0023F7\0000a0\0000a0";
+			}
+	
+			li.card-showing {
+				color: black;
+			}
+		}
+		@media screen and (max-width: 725px) {
+			display: revert;
+		}
+	}
+}
+
+
 
 .comma-separated, .emdash-separated {
 	padding: 0;
-	hyphens: auto;
 
 	li {
 		display: inline;
@@ -82,10 +259,6 @@ svg#sprites {
 
 .emdash-separated li:not(:last-child)::after {
 	content: " — ";
-}
-
-.deg-bachelors > ul.emdash-separated {
-	text-align: center;
 }
 
 @import 'print';
