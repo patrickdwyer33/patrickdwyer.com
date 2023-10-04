@@ -1,132 +1,6 @@
 @use 'boilerplate' as *;
 
-@font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/Roboto/Roboto-Black.ttf') format('truetype');
-	font-weight: 900;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/Roboto/Roboto-BlackItalic.ttf') format('truetype');
-	font-weight: 900;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/Roboto/Roboto-Bold.ttf') format('truetype');
-	font-weight: bold;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/Roboto/Roboto-BoldItalic.ttf') format('truetype');
-	font-weight: bold;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/Roboto/Roboto-Italic.ttf') format('truetype');
-	font-weight: normal;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/Roboto/Roboto-Light.ttf') format('truetype');
-	font-weight: 300;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/Roboto/Roboto-LightItalic.ttf') format('truetype');
-	font-weight: 300;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/Roboto/Roboto-Medium.ttf') format('truetype');
-	font-weight: 500;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/Roboto/Roboto-MediumItalic.ttf') format('truetype');
-	font-weight: 500;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/Roboto/Roboto-Thin.ttf') format('truetype');
-	font-weight: 100;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/Roboto/Roboto-ThinItalic.ttf') format('truetype');
-	font-weight: 100;
-	font-style: italic;
-}
-
-// Roboto_Condensed
-
-@font-face {
-	font-family: 'Roboto_Condensed';
-	src: url('/fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf') format('truetype');
-	font-weight: bold;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Roboto_Condensed';
-	src: url('/fonts/Roboto_Condensed/RobotoCondensed-BoldItalic.ttf') format('truetype');
-	font-weight: bold;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Roboto_Condensed';
-	src: url('/fonts/Roboto_Condensed/RobotoCondensed-Italic.ttf') format('truetype');
-	font-weight: normal;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Roboto_Condensed';
-	src: url('/fonts/Roboto_Condensed/RobotoCondensed-Light.ttf') format('truetype');
-	font-weight: 300;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Roboto_Condensed';
-	src: url('/fonts/Roboto_Condensed/RobotoCondensed-LightItalic.ttf') format('truetype');
-	font-weight: 300;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Roboto_Condensed';
-	src: url('/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
+@use 'fonts' as *;
 
 html {
 	--page-width: 1000px;
@@ -161,6 +35,10 @@ h3 {
 	small {
 		margin-left: auto;
 	}
+}
+
+li, p, a {
+	font-weight: 200;
 }
 
 small {
@@ -303,26 +181,15 @@ span.italics {
 
 .edu-cols {
 	ul.bachelors {
-		display: flex;
-		list-style-type: none;
-		padding-left: 0;
-		li:first-child {
-			&::after {
-				content: "\0000a0—\0000a0";
-			}
-		}
-		li:last-child {
-			margin-left: auto;
-		}
+		font-style: normal;
+		text-align: center;
 		@media screen and (max-width: 875px) {
-			display: revert;
-			list-style-type: square;
-			padding-left: revert;
-			li:first-child::after {
-				content: revert;
-			}
-			li:last-child {
-				margin-left: revert;
+			padding: unset;
+			li {
+				display: unset;
+				&:not(:last-child)::after {
+					content: "";
+				}
 			}
 		}
 	}
@@ -380,7 +247,6 @@ span.italics {
 
 .comma-separated, .emdash-separated {
 	padding: 0;
-	hyphens: auto;
 
 	li {
 		display: inline;

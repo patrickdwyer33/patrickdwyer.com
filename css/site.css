@@ -268,6 +268,10 @@ h3 small {
   margin-left: auto;
 }
 
+li, p, a {
+  font-weight: 200;
+}
+
 small {
   white-space: nowrap;
 }
@@ -449,29 +453,18 @@ span.italics {
 }
 
 .edu-cols ul.bachelors {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  list-style-type: none;
-  padding-left: 0;
-}
-.edu-cols ul.bachelors li:first-child::after {
-  content: " — ";
-}
-.edu-cols ul.bachelors li:last-child {
-  margin-left: auto;
+  font-style: normal;
+  text-align: center;
 }
 @media screen and (max-width: 875px) {
   .edu-cols ul.bachelors {
-    display: revert;
-    list-style-type: square;
-    padding-left: revert;
+    padding: unset;
   }
-  .edu-cols ul.bachelors li:first-child::after {
-    content: revert;
+  .edu-cols ul.bachelors li {
+    display: unset;
   }
-  .edu-cols ul.bachelors li:last-child {
-    margin-left: revert;
+  .edu-cols ul.bachelors li:not(:last-child)::after {
+    content: "";
   }
 }
 .edu-cols .coursework {
@@ -530,9 +523,6 @@ span.italics {
 
 .comma-separated, .emdash-separated {
   padding: 0;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
 }
 .comma-separated li, .emdash-separated li {
   display: inline;
