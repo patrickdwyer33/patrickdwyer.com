@@ -214,16 +214,43 @@ span.italics {
 			color: hsla(0, 0%, 0%, 0.228);
 			flex-basis: 0;
 			flex-grow: 1;
-			border: 1px solid grey;
-			border-radius: 10px;
-			padding-left: 1em;
 			transition: color 200ms;
 			&:hover, &:active, &:focus {
 				color: black;
 			}
+			summary {
+				border: 1px solid grey;
+				border-radius: 10px;
+				padding-left: 1em;
+			}
 		}
 		details[open] {
-			color: black;
+			border: 1px solid black;
+			border-radius: 10px;
+			p, ul {
+				color: black;
+				padding-left: 1em;
+			}
+			ul {
+				margin-left: 1em;
+			}
+			p {
+				margin-top: 0.25em;
+			}
+			summary {
+				color: grey;
+				border-radius: revert;
+				border-top: none;
+				border-left: none;
+				border-right: none;
+				border-bottom: 1px solid black;
+				&:hover, &:active {
+					color: black;
+				}
+			}
+		}
+		details[open].other ul {
+			margin-top: 0.25em;
 		}
 	}
 }

@@ -494,17 +494,44 @@ span.italics {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  border: 1px solid grey;
-  border-radius: 10px;
-  padding-left: 1em;
   -webkit-transition: color 200ms;
   transition: color 200ms;
 }
 .edu-cols .coursework details:hover, .edu-cols .coursework details:active, .edu-cols .coursework details:focus {
   color: black;
 }
+.edu-cols .coursework details summary {
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding-left: 1em;
+}
 .edu-cols .coursework details[open] {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.edu-cols .coursework details[open] p, .edu-cols .coursework details[open] ul {
   color: black;
+  padding-left: 1em;
+}
+.edu-cols .coursework details[open] ul {
+  margin-left: 1em;
+}
+.edu-cols .coursework details[open] p {
+  margin-top: 0.25em;
+}
+.edu-cols .coursework details[open] summary {
+  color: grey;
+  border-radius: revert;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid black;
+}
+.edu-cols .coursework details[open] summary:hover, .edu-cols .coursework details[open] summary:active {
+  color: black;
+}
+.edu-cols .coursework details[open].other ul {
+  margin-top: 0.25em;
 }
 
 .comma-separated, .emdash-separated {
