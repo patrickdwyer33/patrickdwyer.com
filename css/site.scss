@@ -153,8 +153,8 @@ span.italics {
 	column-gap: 1em;
 	img {
 		border-radius: 50%;
-		height: 200px;
-		width: 200px;
+		width: 15.625%;
+		height: 15.625%;
 	}
 	@media screen and (max-width: 650px) {
 		display: grid;
@@ -162,6 +162,8 @@ span.italics {
 		gap: var(--content-gap);
 		img {
 			margin: 0;
+			width: revert;
+			height: revert;
 		}
 		hgroup {
 			display: contents;
