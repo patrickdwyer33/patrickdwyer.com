@@ -67,6 +67,11 @@ footer {
 	}
 }
 
+details {
+	font-family: 'Roboto_Condensed';
+	font-weight: medium;
+}
+
 // SVG Sprites
 svg#sprites {
 	visibility: hidden;
@@ -135,6 +140,8 @@ span.italics {
 	column-gap: 1em;
 	img {
 		border-radius: 50%;
+		height: 200px;
+		width: 200px;
 	}
 	@media screen and (max-width: 650px) {
 		display: grid;
@@ -200,50 +207,23 @@ span.italics {
 	}
 	.coursework {
 		display: flex;
-		flex-wrap: nowrap;
+		column-gap: 0.25em;
 		align-items: flex-start;
-		.math, .cs, .other {
-			flex-grow: 1;
+		margin-bottom: 1em;
+		details {
+			color: hsla(0, 0%, 0%, 0.228);
 			flex-basis: 0;
-			border: 2px solid grey;
+			flex-grow: 1;
+			border: 1px solid grey;
 			border-radius: 10px;
-			padding: 0.25em 0.5em;
-			transition: border-color 200ms;
+			padding-left: 1em;
 			transition: color 200ms;
-			color: grey;
-			margin-bottom: var(--content-gap);
-	
-			h4 {
-				margin-bottom: 0;
-	
-				&::before {
-					content: "\0023F5\0000a0\0000a0";
-				}
-			}
-	
-			:not(h4) {
-				display: none;
-			}
-	
 			&:hover, &:active, &:focus {
-				border-color: black;
-				color: black;
-			}
-	
-			.card-showing {
-				display: revert;
-			}
-
-			h4.card-showing::before {
-				content: "\0023F7\0000a0\0000a0";
-			}
-	
-			li.card-showing {
 				color: black;
 			}
 		}
-		@media screen and (max-width: 725px) {
-			display: revert;
+		details[open] {
+			color: black;
 		}
 	}
 }

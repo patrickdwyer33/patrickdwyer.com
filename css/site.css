@@ -300,6 +300,11 @@ footer a:hover, footer a:active, footer a:focus {
   color: white;
 }
 
+details {
+  font-family: "Roboto_Condensed";
+  font-weight: medium;
+}
+
 svg#sprites {
   visibility: hidden;
   height: 0;
@@ -391,6 +396,8 @@ span.italics {
 }
 .intro img {
   border-radius: 50%;
+  height: 200px;
+  width: 200px;
 }
 @media screen and (max-width: 650px) {
   .intro {
@@ -472,54 +479,32 @@ span.italics {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  -webkit-column-gap: 0.25em;
+     -moz-column-gap: 0.25em;
+          column-gap: 0.25em;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  margin-bottom: 1em;
 }
-.edu-cols .coursework .math, .edu-cols .coursework .cs, .edu-cols .coursework .other {
+.edu-cols .coursework details {
+  color: hsla(0, 0%, 0%, 0.228);
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  -ms-flex-preferred-size: 0;
-      flex-basis: 0;
-  border: 2px solid grey;
+  border: 1px solid grey;
   border-radius: 10px;
-  padding: 0.25em 0.5em;
-  -webkit-transition: border-color 200ms;
-  transition: border-color 200ms;
+  padding-left: 1em;
   -webkit-transition: color 200ms;
   transition: color 200ms;
-  color: grey;
-  margin-bottom: var(--content-gap);
 }
-.edu-cols .coursework .math h4, .edu-cols .coursework .cs h4, .edu-cols .coursework .other h4 {
-  margin-bottom: 0;
-}
-.edu-cols .coursework .math h4::before, .edu-cols .coursework .cs h4::before, .edu-cols .coursework .other h4::before {
-  content: "⏵  ";
-}
-.edu-cols .coursework .math :not(h4), .edu-cols .coursework .cs :not(h4), .edu-cols .coursework .other :not(h4) {
-  display: none;
-}
-.edu-cols .coursework .math:hover, .edu-cols .coursework .math:active, .edu-cols .coursework .math:focus, .edu-cols .coursework .cs:hover, .edu-cols .coursework .cs:active, .edu-cols .coursework .cs:focus, .edu-cols .coursework .other:hover, .edu-cols .coursework .other:active, .edu-cols .coursework .other:focus {
-  border-color: black;
+.edu-cols .coursework details:hover, .edu-cols .coursework details:active, .edu-cols .coursework details:focus {
   color: black;
 }
-.edu-cols .coursework .math .card-showing, .edu-cols .coursework .cs .card-showing, .edu-cols .coursework .other .card-showing {
-  display: revert;
-}
-.edu-cols .coursework .math h4.card-showing::before, .edu-cols .coursework .cs h4.card-showing::before, .edu-cols .coursework .other h4.card-showing::before {
-  content: "⏷  ";
-}
-.edu-cols .coursework .math li.card-showing, .edu-cols .coursework .cs li.card-showing, .edu-cols .coursework .other li.card-showing {
+.edu-cols .coursework details[open] {
   color: black;
-}
-@media screen and (max-width: 725px) {
-  .edu-cols .coursework {
-    display: revert;
-  }
 }
 
 .comma-separated, .emdash-separated {

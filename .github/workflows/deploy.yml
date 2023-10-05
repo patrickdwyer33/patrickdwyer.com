@@ -33,6 +33,6 @@ jobs:
               run: "rsync ${{ env.FLAGS }} ${{ env.EXCLUDE }} ${{ env.LOCAL }} ector:${{ env.REMOTE }}"
               env:
                   FLAGS: --archive --verbose --compress --protect-args --delete --cvs-exclude
-                  EXCLUDE: --exclude .github --exclude README.md --exclude .gitignore
+                  EXCLUDE: --exclude .github --exclude README.md --exclude .gitignore --exclude /css/*.scss
                   LOCAL: ./
                   REMOTE: /var/www/patrickdwyer.com/
