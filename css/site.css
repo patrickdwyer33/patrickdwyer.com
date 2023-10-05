@@ -460,6 +460,7 @@ span.italics {
           flex-grow: 1;
   -webkit-transition: color 200ms;
   transition: color 200ms;
+  white-space: nowrap;
 }
 .edu-cols .coursework details:hover, .edu-cols .coursework details:active, .edu-cols .coursework details:focus {
   color: black;
@@ -496,6 +497,14 @@ span.italics {
 }
 .edu-cols .coursework details[open].other ul {
   margin-top: 0.25em;
+}
+@media screen and (max-width: 725px) {
+  .edu-cols .coursework {
+    display: revert;
+  }
+  .edu-cols .coursework details:not(:last-child) {
+    margin-bottom: 0.5em;
+  }
 }
 
 .comma-separated, .emdash-separated {

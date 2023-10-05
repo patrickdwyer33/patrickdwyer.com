@@ -230,6 +230,7 @@ span.italics {
 			flex-basis: 0;
 			flex-grow: 1;
 			transition: color 200ms;
+			white-space: nowrap;
 			&:hover, &:active, &:focus {
 				color: black;
 			}
@@ -266,6 +267,12 @@ span.italics {
 		}
 		details[open].other ul {
 			margin-top: 0.25em;
+		}
+		@media screen and (max-width: 725px) {
+			display: revert;
+			details:not(:last-child) {
+				margin-bottom: 0.5em;
+			}
 		}
 	}
 }
