@@ -447,7 +447,7 @@ span.italics {
   display: block;
   font-style: italic;
   color: hsl(0, 0%, 20%);
-  margin-bottom: 0.5em;
+  margin-bottom: 0.25em;
   text-align: right;
 }
 
