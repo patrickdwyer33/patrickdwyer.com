@@ -228,6 +228,13 @@ span.italics {
 	}
 }
 
+#projects h3 {
+	column-gap: 0px;
+	a::before {
+		content: "\00A0";
+	}
+}
+
 .comma-separated{
 	padding: 0;
 

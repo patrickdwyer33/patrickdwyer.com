@@ -451,6 +451,15 @@ span.italics {
   text-align: right;
 }
 
+#projects h3 {
+  -webkit-column-gap: 0px;
+     -moz-column-gap: 0px;
+          column-gap: 0px;
+}
+#projects h3 a::before {
+  content: " ";
+}
+
 .comma-separated {
   padding: 0;
 }
