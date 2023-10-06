@@ -190,7 +190,7 @@ html {
 }
 
 body {
-  background-color: gray;
+  background-color: hsl(20, 10%, 30%);
   font-family: "Source Sans";
   line-height: 1.3;
 }
@@ -198,8 +198,10 @@ body {
 main {
   background-color: white;
   max-width: var(--page-width);
-  padding: 2em;
+  padding: clamp(1rem, 0.8rem + 1vw, 2rem);
   margin: auto;
+  -webkit-box-shadow: 0 0 2em hsla(0, 0%, 0%, 0.7);
+          box-shadow: 0 0 2em hsla(0, 0%, 0%, 0.7);
 }
 
 h1, h2 {
@@ -256,6 +258,7 @@ footer p {
   margin: auto;
   line-height: 1;
   color: hsla(0, 0%, 100%, 0.7);
+  padding: 0 0.5em;
 }
 footer a {
   line-height: 1;
@@ -343,46 +346,38 @@ span.italics {
   }
 }
 
-.intro {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 1em;
-     -moz-column-gap: 1em;
-          column-gap: 1em;
-}
 .intro img {
   border-radius: 50%;
+  float: left;
+  width: 35%;
+  shape-outside: circle(50%);
+  margin: 1em 1em 1em 0;
 }
-@media screen and (max-width: 650px) {
+@media screen and (min-width: 650px) {
   .intro {
     display: grid;
-    grid-template-columns: 1fr 2.5fr;
-    gap: var(--content-gap);
+    grid-template-columns: 200px 1fr;
+    -webkit-column-gap: 1em;
+       -moz-column-gap: 1em;
+            column-gap: 1em;
   }
   .intro img {
-    margin: 0;
+    grid-column: 1;
+    float: none;
+    width: auto;
+    grid-row: 1/3;
   }
-  .intro hgroup {
-    display: contents;
+  .intro h1, .intro p {
+    grid-column: 2;
   }
   .intro h1 {
-    margin: 0;
-    justify-self: start;
-    -ms-flex-item-align: center;
-        align-self: center;
-    white-space: nowrap;
+    -ms-flex-item-align: end;
+        align-self: end;
   }
-  .intro p {
-    grid-row: 2/3;
-    grid-column: 1/3;
-  }
+}
+
+.intro + h2 {
+  clear: left;
 }
 
 .skills-cols {
@@ -391,10 +386,6 @@ span.italics {
   -webkit-column-gap: 1em;
      -moz-column-gap: 1em;
           column-gap: 1em;
-}
-.skills-cols h3 {
-  display: revert;
-  text-align: center;
 }
 @media screen and (max-width: 725px) {
   .skills-cols {
@@ -425,103 +416,64 @@ span.italics {
   }
 }
 
-.edu-cols ul.bachelors {
-  font-style: normal;
-  text-align: center;
-}
-@media screen and (max-width: 875px) {
-  .edu-cols ul.bachelors {
-    padding: revert;
-    list-style-type: none;
-  }
-  .edu-cols ul.bachelors li {
-    display: revert;
-  }
-  .edu-cols ul.bachelors li:not(:last-child)::after {
-    content: "";
+@media screen and (min-width: 650px) {
+  .edu-cols .coursework {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    -webkit-column-gap: 1em;
+       -moz-column-gap: 1em;
+            column-gap: 1em;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
   }
 }
-.edu-cols .coursework {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-column-gap: 0.25em;
-     -moz-column-gap: 0.25em;
-          column-gap: 0.25em;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  margin-bottom: 1em;
+.edu-cols .coursework summary {
+  background-color: hsl(0, 0%, 95%);
+  padding: 0.5em 1em;
 }
 .edu-cols .coursework details {
-  color: hsla(0, 0%, 0%, 0.228);
-  -ms-flex-preferred-size: 0;
-      flex-basis: 0;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -webkit-transition: color 200ms;
-  transition: color 200ms;
-  white-space: nowrap;
+  border: 1px solid hsl(0, 0%, 90%);
+  margin-bottom: 1em;
+  border-radius: 0.2em;
 }
-.edu-cols .coursework details:hover, .edu-cols .coursework details:active, .edu-cols .coursework details:focus {
-  color: black;
+.edu-cols .coursework details > div {
+  padding: 0.5em;
 }
-.edu-cols .coursework details summary {
-  border: 1px solid grey;
-  border-radius: 10px;
-  padding-left: 1em;
+.edu-cols .coursework details > div :last-child {
+  margin-bottom: 0;
 }
-.edu-cols .coursework details[open] {
-  border: 1px solid black;
-  border-radius: 10px;
-}
-.edu-cols .coursework details[open] p, .edu-cols .coursework details[open] ul {
-  color: black;
-  padding-left: 1em;
-}
-.edu-cols .coursework details[open] ul {
-  margin-left: 1em;
-}
-.edu-cols .coursework details[open] p {
-  margin: 0.25em 0;
-}
-.edu-cols .coursework details[open] summary {
-  color: grey;
-  border-radius: revert;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 1px solid black;
-}
-.edu-cols .coursework details[open] summary:hover, .edu-cols .coursework details[open] summary:active {
-  color: black;
-}
-.edu-cols .coursework details[open].other ul {
-  margin-top: 0.25em;
-}
-@media screen and (max-width: 725px) {
-  .edu-cols .coursework {
-    display: revert;
-  }
-  .edu-cols .coursework details:not(:last-child) {
-    margin-bottom: 0.5em;
-  }
+.edu-cols .coursework small {
+  display: block;
+  font-style: italic;
+  color: hsl(0, 0%, 20%);
+  margin-bottom: 0.5em;
+  text-align: right;
 }
 
-.comma-separated, .emdash-separated {
+.comma-separated {
   padding: 0;
 }
-.comma-separated li, .emdash-separated li {
+.comma-separated li {
   display: inline;
 }
-
 .comma-separated li:not(:last-child)::after {
   content: ", ";
 }
 
-.emdash-separated li:not(:last-child)::after {
-  content: " — ";
+.emdash-separated {
+  padding: 0;
+}
+.emdash-separated li {
+  display: block;
+}
+@media screen and (min-width: 650px) {
+  .emdash-separated li {
+    display: inline;
+  }
+  .emdash-separated li:not(:last-child)::after {
+    content: " — ";
+  }
 }
 
 @media print {
@@ -531,20 +483,8 @@ span.italics {
   html {
     font-size: 10pt;
   }
-  body {
-    width: 100%;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-  }
   br {
     display: none;
-  }
-  footer p {
-    padding: 0.5rem 0;
-  }
-  .contact-info {
-    padding: 0.5rem 0;
   }
   .print {
     display: unset;
