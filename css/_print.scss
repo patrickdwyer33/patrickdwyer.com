@@ -4,20 +4,43 @@
     }
 
     html {
-        font-size: 10pt;
+        font-size: 11pt;
     }
 
-    br {
-        display: none;
+    body {
+        background-color: revert;
+        width: calc(8.5in - 3cm);
+        height: calc(11in - 3cm);
+        .contact-info, footer {
+            // flex-grow: 0;
+            margin: 0;
+            padding: 8px 0;
+        }
+        .contact-info {
+            position: static;
+        }
+        footer+svg {
+            display: none;
+        }
+        main {
+            margin: 0;
+            padding: 8.75px 0;
+            box-shadow: none;
+        }
+
+        br {
+            display: none;
+        }
+
+        .print {
+            display: unset;
+        }
+
+        .no-print {
+            display: none;
+        }
     }
 
-    .print {
-        display: unset;
-    }
-
-    .no-print {
-        display: none;
-    }
 
 
 }

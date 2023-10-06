@@ -486,15 +486,36 @@ span.italics {
     margin: 2cm 2cm;
   }
   html {
-    font-size: 10pt;
+    font-size: 11pt;
   }
-  br {
+  body {
+    background-color: revert;
+    width: 7.3188976378in;
+    height: 9.8188976378in;
+  }
+  body .contact-info, body footer {
+    margin: 0;
+    padding: 8px 0;
+  }
+  body .contact-info {
+    position: static;
+  }
+  body footer + svg {
     display: none;
   }
-  .print {
+  body main {
+    margin: 0;
+    padding: 8.75px 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  body br {
+    display: none;
+  }
+  body .print {
     display: unset;
   }
-  .no-print {
+  body .no-print {
     display: none;
   }
 }
