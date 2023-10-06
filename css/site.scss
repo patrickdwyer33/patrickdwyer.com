@@ -44,13 +44,11 @@ li:not(:last-child) {
 	margin-bottom: 0.25em;
 }
 
-a {
-	// text-decoration-color: hsl(240 100% 80%);
+main a {
 	color: hsl(240 100% 47%);
 	text-decoration: none;
 	&:visited, &:focus {
 		color: hsl(271 68% 32%);
-		// text-decoration-color: hsl(271 68% 80%);
 	}
 }
 
@@ -147,7 +145,7 @@ span.italics {
 		shape-outside: circle(50%);
 		margin: 1em 1em 1em 0;
 	}
-	@media screen and (min-width: 650px) {
+	@media (min-width: 650px) {
 		display: grid;
 		grid-template-columns: 200px 1fr;
 		column-gap: 1em;
@@ -166,16 +164,11 @@ span.italics {
 	}
 }
 
-.intro + h2 {
-	clear: left;
-}
-
 .skills-cols {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	column-gap: 1em;
-	@media screen and (max-width: 725px) {
-		display: revert;
+	@media (min-width: 650px) {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		column-gap: 1em;
 	}
 }
 
@@ -183,14 +176,13 @@ span.italics {
 	display: flex;
 	flex-direction: column;
 	ul {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		column-gap: 1.5em;
 		margin-bottom: var(--content-gap);
 	}
-	@media screen and (max-width: 650px) {
+	@media (min-width: 650px) {
 		ul {
-			display: revert;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			column-gap: 1.5em;
 		}
 	}
 }
@@ -251,7 +243,7 @@ span.italics {
 	li {
 		display: block;
 	}
-	@media screen and (min-width: 650px) {
+	@media (min-width: 650px) {
 		li {
 			display: inline;
 			&:not(:last-child)::after {
