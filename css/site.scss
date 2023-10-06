@@ -145,7 +145,7 @@ span.italics {
 		shape-outside: circle(50%);
 		margin: 1em 1em 1em 0;
 	}
-	@media (min-width: 650px) {
+	@media screen and (min-width: 650px) {
 		display: grid;
 		grid-template-columns: 200px 1fr;
 		column-gap: 1em;
@@ -165,7 +165,7 @@ span.italics {
 }
 
 .skills-cols {
-	@media (min-width: 650px) {
+	@media screen and (min-width: 650px) {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		column-gap: 1em;
@@ -178,7 +178,7 @@ span.italics {
 	ul {
 		margin-bottom: var(--content-gap);
 	}
-	@media (min-width: 650px) {
+	@media screen and (min-width: 650px) {
 		ul {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
@@ -247,7 +247,7 @@ span.italics {
 	li {
 		display: block;
 	}
-	@media (min-width: 650px) {
+	@media screen and (min-width: 650px) {
 		li {
 			display: inline;
 			&:not(:last-child)::after {
