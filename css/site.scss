@@ -19,10 +19,6 @@ main {
 	margin: auto;
 }
 
-// h1, h2, h3, h4, h5, h6 {
-// 	font-family: "Roboto_Condensed";
-// }
-
 h1, h2 {
 	font-family: "Libre Baskerville";
 }
@@ -33,11 +29,10 @@ h2 {
 }
 
 h3 {
-	display: grid;
-	grid-template-columns: 3fr 1fr;
+	display: flex;
 	align-items: center;
 	column-gap: 1em;
-	font-weight: 600;
+	font-weight: 700;
 
 	small {
 		margin-left: auto;
@@ -104,10 +99,6 @@ span.italics {
 	font-style: italic;
 }
 
-// a:nth-of-type(1) > svg {
-// 	transform: "scale(2) translate(0 500)";
-// }
-
 .print {
 	display: none;
 }
@@ -153,8 +144,6 @@ span.italics {
 	column-gap: 1em;
 	img {
 		border-radius: 50%;
-		width: 15.625%;
-		height: 15.625%;
 	}
 	@media screen and (max-width: 650px) {
 		display: grid;
@@ -162,8 +151,6 @@ span.italics {
 		gap: var(--content-gap);
 		img {
 			margin: 0;
-			width: revert;
-			height: revert;
 		}
 		hgroup {
 			display: contents;
@@ -185,6 +172,10 @@ span.italics {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	column-gap: 1em;
+	h3 {
+		display: revert;
+		text-align: center;
+	}
 	@media screen and (max-width: 725px) {
 		display: revert;
 	}
@@ -197,6 +188,7 @@ span.italics {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		column-gap: 1.5em;
+		margin-bottom: var(--content-gap);
 	}
 	@media screen and (max-width: 650px) {
 		ul {
@@ -251,7 +243,7 @@ span.italics {
 				margin-left: 1em;
 			}
 			p {
-				margin-top: 0.25em;
+				margin: 0.25em 0;
 			}
 			summary {
 				color: grey;
@@ -276,8 +268,6 @@ span.italics {
 		}
 	}
 }
-
-
 
 .comma-separated, .emdash-separated {
 	padding: 0;

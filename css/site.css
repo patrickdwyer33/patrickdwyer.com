@@ -212,15 +212,16 @@ h2 {
 }
 
 h3 {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-column-gap: 1em;
      -moz-column-gap: 1em;
           column-gap: 1em;
-  font-weight: 600;
+  font-weight: 700;
 }
 h3 small {
   margin-left: auto;
@@ -358,8 +359,6 @@ span.italics {
 }
 .intro img {
   border-radius: 50%;
-  width: 15.625%;
-  height: 15.625%;
 }
 @media screen and (max-width: 650px) {
   .intro {
@@ -369,8 +368,6 @@ span.italics {
   }
   .intro img {
     margin: 0;
-    width: revert;
-    height: revert;
   }
   .intro hgroup {
     display: contents;
@@ -395,6 +392,10 @@ span.italics {
      -moz-column-gap: 1em;
           column-gap: 1em;
 }
+.skills-cols h3 {
+  display: revert;
+  text-align: center;
+}
 @media screen and (max-width: 725px) {
   .skills-cols {
     display: revert;
@@ -416,6 +417,7 @@ span.italics {
   -webkit-column-gap: 1.5em;
      -moz-column-gap: 1.5em;
           column-gap: 1.5em;
+  margin-bottom: var(--content-gap);
 }
 @media screen and (max-width: 650px) {
   .exp-cols ul {
@@ -482,7 +484,7 @@ span.italics {
   margin-left: 1em;
 }
 .edu-cols .coursework details[open] p {
-  margin-top: 0.25em;
+  margin: 0.25em 0;
 }
 .edu-cols .coursework details[open] summary {
   color: grey;
