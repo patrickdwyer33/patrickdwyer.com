@@ -220,6 +220,8 @@ span.italics {
 	}
 }
 
+// body footer {display: none;}
+
 #projects h3 {
 	column-gap: 0px;
 	a {
@@ -255,6 +257,14 @@ span.italics {
 			}
 		}
 	}
+}
+
+.hide {
+	display: none;
+}
+
+footer {
+	padding: 1.2em 0;
 }
 
 

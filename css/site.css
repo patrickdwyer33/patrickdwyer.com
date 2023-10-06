@@ -481,6 +481,14 @@ span.italics {
   }
 }
 
+.hide {
+  display: none;
+}
+
+footer {
+  padding: 1.2em 0;
+}
+
 @media print {
   @page {
     margin: 2cm 2cm;
