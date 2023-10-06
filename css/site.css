@@ -448,8 +448,12 @@ span.italics {
      -moz-column-gap: 0px;
           column-gap: 0px;
 }
+#projects h3 a {
+  display: contents;
+}
 #projects h3 a::before {
   content: " ";
+  display: contents;
 }
 
 .comma-separated {
