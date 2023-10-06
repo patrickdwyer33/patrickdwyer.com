@@ -1,22 +1,82 @@
 @use 'boilerplate' as *;
 
+@use 'fonts' as *;
+
 html {
 	--page-width: 1000px;
 }
 
 body {
-	background-color: gray;
+	background-color: hsl(20, 10%, 30%);
+	font-family: "Source Sans";
+	line-height: 1.3;
 }
 
 main {
 	background-color: white;
 	max-width: var(--page-width);
-	padding: 2em;
+	padding: clamp(1rem, 0.8rem + 1vw, 2rem);
 	margin: auto;
+	box-shadow: 0 0 2em hsl(0 0% 0% / 0.7);
+}
+
+h1, h2 {
+	font-family: "Libre Baskerville";
 }
 
 h2 {
-	border-bottom: 1px solid gray;
+	border-bottom: 1px solid hsl(0 0% 90%);
+	padding-bottom: 0.1em;
+}
+
+h3 {
+	display: flex;
+	align-items: center;
+	column-gap: 1em;
+	font-weight: 700;
+
+	small {
+		margin-left: auto;
+	}
+}
+
+li:not(:last-child) {
+	margin-bottom: 0.25em;
+}
+
+main a {
+	color: hsl(240 100% 47%);
+	text-decoration: none;
+	&:visited, &:focus {
+		color: hsl(271 68% 32%);
+	}
+}
+
+small {
+	white-space: nowrap;
+}
+
+footer {
+	padding: 0.5em 0;
+	background-color: hsl(205, 32%, 48%);
+	margin: 0 auto;
+	display: flex;
+	max-width: var(--page-width);
+	p {
+		margin: auto;
+		line-height: 1;
+		color: hsl(0 0% 100% / 0.7);
+		padding: 0 0.5em;
+	}
+	a {
+		line-height: 1;
+		color: hsl(0 0% 100% / 0.7);
+		transition: color 400ms;
+	
+		&:hover, &:active, &:focus {
+			color: white;
+		}
+	}
 }
 
 // SVG Sprites
@@ -27,38 +87,39 @@ svg#sprites {
 	position: absolute;
 }
 
-footer ul {
-	float: right;
-	display: grid;
-	grid-template-columns: 3rem auto;
-	gap: 5px;
-	padding: 0;
-	align-content: center;
-	li, a {
-		display: contents;
+br.mobile {
+	display: none;
+	@media screen and (max-width: 650px) {
+		display: revert;
 	}
-	@media (max-width: 800px) {
-		float: none;
-		justify-content: center;
-	}
+}
+
+span.italics {
+	display: contents;
+	font-style: italic;
+}
+
+.print {
+	display: none;
 }
 
 .contact-info {
 	padding: 0.5em 0;
 	display: flex;
-	justify-content: center;
 	column-gap: 1em;
-	background-color: hsl(20 16% 15%);
+	background-color: hsl(205, 32%, 48%);
 	max-width: var(--page-width);
 	margin: 0 auto;
 	position: sticky;
 	top: 0;
+	justify-content: center;
 	a {
 		display: flex;
 		column-gap: 0.25em;
 		align-items: center;
 		line-height: 1;
 		color: hsl(0 0% 100% / 0.7);
+		text-decoration: none;
 		transition: color 400ms;
 		&:hover, &:active, &:focus {
 			color: white;
@@ -68,28 +129,143 @@ footer ul {
 		height: 1.5em;
 		fill: currentColor;
 	}
-}
-
-.intro {
-	display: grid;
-
-}
-
-.comma-separated, .emdash-separated {
-	padding: 0;
-	hyphens: auto;
-
-	li {
-		display: inline;
+	@media screen and (max-width: 650px) {
+		justify-content: space-evenly;
+		span {
+			display: none;
+		}
 	}
 }
 
-.comma-separated li:not(:last-child)::after {
-	content: ", ";
+.intro {
+	img {
+		border-radius: 50%;
+		float: left;
+		width: 35%;
+		shape-outside: circle(50%);
+		margin: 1em 1em 1em 0;
+	}
+	@media screen and (min-width: 650px) {
+		display: grid;
+		grid-template-columns: 200px 1fr;
+		column-gap: 1em;
+		img {
+			grid-column: 1;
+			float: none;
+			width: auto;
+			grid-row: 1 / 3;
+		}
+		h1, p {
+			grid-column: 2;
+		}
+		h1 {
+			align-self: end;
+		}
+	}
 }
 
-.emdash-separated li:not(:last-child)::after {
-	content: " — ";
+.skills-cols {
+	@media screen and (min-width: 650px) {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		column-gap: 1em;
+	}
 }
+
+.exp-cols {
+	display: flex;
+	flex-direction: column;
+	ul {
+		margin-bottom: var(--content-gap);
+	}
+	@media screen and (min-width: 650px) {
+		ul {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			column-gap: 1.5em;
+		}
+	}
+}
+
+.edu-cols {
+	.coursework {
+		@media screen and (min-width: 650px) {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			column-gap: 1em;
+			align-items: start;
+		} 
+		summary {
+			background-color: hsl(0 0% 95%);
+			padding: 0.5em 1em;
+		}
+		details {
+			border: 1px solid hsl(0 0% 90%);
+			margin-bottom: 1em;
+			border-radius: 0.2em;
+			> div {
+				padding: 0.5em;
+				:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+		small {
+			display: block;
+			font-style: italic;
+			color: hsl(0 0% 20%);
+			margin-bottom: 0.25em;
+			text-align: right;
+		}
+	}
+}
+
+// body footer {display: none;}
+
+#projects h3 {
+	column-gap: 0px;
+	a {
+		display: contents;
+	}
+	a::before {
+		content: "\00A0";
+		display: contents;
+	}
+}
+
+.comma-separated{
+	padding: 0;
+
+	li {
+		display: inline;
+		&:not(:last-child)::after {
+			content: ", ";
+		}
+	}
+}
+
+.emdash-separated {
+	padding: 0;
+	li {
+		display: block;
+	}
+	@media screen and (min-width: 650px) {
+		li {
+			display: inline;
+			&:not(:last-child)::after {
+				content: " — ";
+			}
+		}
+	}
+}
+
+.hide {
+	display: none;
+}
+
+footer {
+	padding: 1.2em 0;
+}
+
 
 @import 'print';
