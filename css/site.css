@@ -424,16 +424,31 @@ span.italics {
   background-color: hsl(0, 0%, 95%);
   padding: 0.5em 1em;
 }
-.edu-cols .coursework details {
+.edu-cols .coursework > details {
   border: 1px solid hsl(0, 0%, 90%);
   margin-bottom: 1em;
   border-radius: 0.2em;
 }
-.edu-cols .coursework details > div {
+.edu-cols .coursework > details > div {
   padding: 0.5em;
 }
-.edu-cols .coursework details > div :last-child {
+.edu-cols .coursework > details > div :last-child {
   margin-bottom: 0;
+}
+.edu-cols .coursework > details details {
+  border: none;
+}
+.edu-cols .coursework > details details summary {
+  list-style: none;
+  background-color: revert;
+  padding: 0;
+  color: hsl(240, 100%, 47%);
+}
+.edu-cols .coursework > details details ul :last-child {
+  margin-bottom: 0;
+}
+.edu-cols .coursework > details details[open] summary {
+  color: revert;
 }
 .edu-cols .coursework small {
   display: block;
