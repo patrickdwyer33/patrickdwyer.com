@@ -199,7 +199,7 @@ span.italics {
 			background-color: hsl(0 0% 95%);
 			padding: 0.5em 1em;
 		}
-		> details {
+		details {
 			border: 1px solid hsl(0 0% 90%);
 			margin-bottom: 1em;
 			border-radius: 0.2em;
@@ -208,23 +208,6 @@ span.italics {
 				:last-child {
 					margin-bottom: 0;
 				}
-			}
-			details {
-				border: none;
-				summary {
-					list-style: none;
-					background-color: revert;
-					padding: 0;
-					color: hsl(240 100% 47%);
-				}
-				ul {
-					:last-child {
-						margin-bottom: 0;
-					}
-				}
-			}
-			details[open] summary {
-				color: revert;
 			}
 		}
 		small {
