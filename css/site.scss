@@ -1,90 +1,7 @@
-@use 'boilerplate' as *;
-
-@use 'fonts' as *;
-
-html {
-	--page-width: 1000px;
-}
-
-body {
-	background-color: hsl(20, 10%, 30%);
-	font-family: "Source Sans";
-	line-height: 1.3;
-}
-
-main {
-	background-color: white;
-	max-width: var(--page-width);
-	padding: clamp(1rem, 0.8rem + 1vw, 2rem);
-	margin: auto;
-	box-shadow: 0 0 2em hsl(0 0% 0% / 0.7);
-}
-
-h1, h2 {
-	font-family: "Libre Baskerville";
-}
-
-h2 {
-	border-bottom: 1px solid hsl(0 0% 90%);
-	padding-bottom: 0.1em;
-}
-
-h3 {
-	display: flex;
-	align-items: center;
-	column-gap: 1em;
-	font-weight: 700;
-
-	small {
-		margin-left: auto;
-	}
-}
-
-li:not(:last-child) {
-	margin-bottom: 0.25em;
-}
-
-main a {
-	color: hsl(240 100% 47%);
-	text-decoration: none;
-	&:visited, &:focus {
-		color: hsl(271 68% 32%);
-	}
-}
+@use 'theme' as *;
 
 small {
 	white-space: nowrap;
-}
-
-footer {
-	padding: 0.5em 0;
-	background-color: hsl(205, 32%, 48%);
-	margin: 0 auto;
-	display: flex;
-	max-width: var(--page-width);
-	p {
-		margin: auto;
-		line-height: 1;
-		color: hsl(0 0% 100% / 0.7);
-		padding: 0 0.5em;
-	}
-	a {
-		line-height: 1;
-		color: hsl(0 0% 100% / 0.7);
-		transition: color 400ms;
-	
-		&:hover, &:active, &:focus {
-			color: white;
-		}
-	}
-}
-
-// SVG Sprites
-svg#sprites {
-	visibility: hidden;
-	height: 0;
-	width: 0;
-	position: absolute;
 }
 
 br.mobile {
@@ -97,44 +14,6 @@ br.mobile {
 span.italics {
 	display: contents;
 	font-style: italic;
-}
-
-.print {
-	display: none;
-}
-
-.contact-info {
-	padding: 0.5em 0;
-	display: flex;
-	column-gap: 1em;
-	background-color: hsl(205, 32%, 48%);
-	max-width: var(--page-width);
-	margin: 0 auto;
-	position: sticky;
-	top: 0;
-	justify-content: center;
-	a {
-		display: flex;
-		column-gap: 0.25em;
-		align-items: center;
-		line-height: 1;
-		color: hsl(0 0% 100% / 0.7);
-		text-decoration: none;
-		transition: color 400ms;
-		&:hover, &:active, &:focus {
-			color: white;
-		}
-	}
-	svg {
-		height: 1.5em;
-		fill: currentColor;
-	}
-	@media screen and (max-width: 650px) {
-		justify-content: space-evenly;
-		span {
-			display: none;
-		}
-	}
 }
 
 .intro {
@@ -231,40 +110,6 @@ span.italics {
 		content: "\00A0";
 		display: contents;
 	}
-}
-
-.comma-separated{
-	padding: 0;
-
-	li {
-		display: inline;
-		&:not(:last-child)::after {
-			content: ", ";
-		}
-	}
-}
-
-.emdash-separated {
-	padding: 0;
-	li {
-		display: block;
-	}
-	@media screen and (min-width: 650px) {
-		li {
-			display: inline;
-			&:not(:last-child)::after {
-				content: " — ";
-			}
-		}
-	}
-}
-
-.hide {
-	display: none;
-}
-
-footer {
-	padding: 1.2em 0;
 }
 
 
