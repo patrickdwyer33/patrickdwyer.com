@@ -55,8 +55,11 @@ main a {
     }
 }
 
+footer, .contact-info {
+    padding: 0.5em 0;
+}
+
 footer {
-    padding: 0.7em 0;
     background-color: hsl(205, 32%, 48%);
     margin: 0 auto;
     display: flex;
@@ -67,6 +70,7 @@ footer {
         line-height: 1;
         color: hsl(0 0% 100% / 0.7);
         padding: 0 0.5em;
+        height: 1.5em;
     }
 
     a {
@@ -129,7 +133,6 @@ svg#sprites {
 }
 
 .contact-info {
-    padding: 0.5em 0;
     display: flex;
     column-gap: 1em;
     background-color: hsl(205, 32%, 48%);

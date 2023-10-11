@@ -242,8 +242,11 @@ main a:visited, main a:focus {
   color: hsl(271, 68%, 32%);
 }
 
+footer, .contact-info {
+  padding: 0.5em 0;
+}
+
 footer {
-  padding: 0.7em 0;
   background-color: hsl(205, 32%, 48%);
   margin: 0 auto;
   display: -webkit-box;
@@ -256,6 +259,7 @@ footer p {
   line-height: 1;
   color: hsla(0, 0%, 100%, 0.7);
   padding: 0 0.5em;
+  height: 1.5em;
 }
 footer a {
   line-height: 1;
@@ -308,7 +312,6 @@ svg#sprites {
 }
 
 .contact-info {
-  padding: 0.5em 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
