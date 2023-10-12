@@ -253,16 +253,18 @@ footer {
   display: -ms-flexbox;
   display: flex;
   max-width: var(--page-width);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 footer p {
-  margin: auto;
-  line-height: 1;
-  color: hsla(0, 0%, 100%, 0.7);
-  padding: 0 0.5em;
+  padding: 0;
+  margin: 0;
   height: 1.5em;
 }
 footer a {
   line-height: 1;
+  padding: 0 0.5em;
   color: hsla(0, 0%, 100%, 0.7);
   -webkit-transition: color 400ms;
   transition: color 400ms;
@@ -410,7 +412,7 @@ span.italics {
 }
 
 @media screen and (min-width: 650px) {
-  .skills-cols {
+  #skills-cols {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     -webkit-column-gap: 1em;
@@ -548,7 +550,7 @@ span.italics {
   }
   body main {
     margin: 0;
-    padding: 8.75px 0;
+    padding: 5px 0;
     -webkit-box-shadow: none;
             box-shadow: none;
   }
