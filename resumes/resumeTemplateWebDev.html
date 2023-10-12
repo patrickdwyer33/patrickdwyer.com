@@ -26,11 +26,13 @@
             <img src="/images/headshot.webp" alt="Patrick Dwyer">
             <p>2023 Northwestern Graduate. Double major in Computer Science and Math.
                 Passion for user-centric web development. 
+                Seeking full-time web development positions that will help me develop my technical and soft skills
+                while providing value within a team. Based in Saint Louis but open to hybrid & remote jobs.
             </p>
         </div>
 
         <h2>Technical Skills</h2>
-        <div id="skills-cols">
+        <div class="skills-cols">
             <div>
                 <h3>Languages</h3>
                 <ul class="comma-separated">
@@ -68,44 +70,35 @@
             </div>
         </div>
 
-        <h2>Experience</h2>
-        <div class="exp-cols">
-            <h3>Schwartz Lab: <br class="mobile"><span class="italics">Lab Tech</span> <small>July 2023 – <br
-                        class="mobile">Sep 2023</small></h3>
+        <div class="projects" class="no-print">
+            <h2>Projects</h2>
+            <h3><a href="https://patrickdwyer.com">patrickdwyer.com</a> <small>Summer 2023-Present</small></h3>
             <ul>
-                <li>Developed supervised 3d Convolutional Neural Network in PyTorch</li>
-                <li>Extended PyTorch <a
-                        href="https://pytorch.org/docs/stable/autograd.html#function">torch.autograd.Function</a> class
-                    to integrate 3d➞2d point projection into <a
-                        href="https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html">autograd</a></li>
-                <li>Set up extrinsic camera calibration routine by implementing <a
-                        href="https://en.wikipedia.org/wiki/Levenberg%E2%80%93Marquardt_algorithm">Levenberg-Marquardt</a>
-                    for <a href="https://en.wikipedia.org/wiki/Bundle_adjustment">Bundle Adjustment</a></li>
-                <li>Manually labelled 8,544 ground truth 2d points using self-made image labeling program</li>
+                <li>CV webpage built with HTML and SCSS, runs on an Apache Web Server</li>
             </ul>
-            <h3>Manifold Group: <br class="mobile"><span class="italics">Data Science Intern</span> <small>July 2022 –
-                    <br class="mobile">Aug 2022</small></h3>
+            <h3>Story Painter (Class: <a
+                    href="https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/338-2.html">Practicum
+                    in Intelligent Information Systems</a>) <small>Fall 2022</small></h3>
             <ul>
-                <li>Collaborated with head of data analytics to build a modular and extendable data pipeline in Python
-                    using
-                    Pandas and NumPy</li>
-                <li>Visualized data for head of data analytics and partners using Matplotlib and Altair</li>
+                <li>Collaborated on a team of three people using agile methodologies to create a system that takes in a short story and outputs a
+                    picture
+                    book that fits the story</li>
+                <li>Built as a web app using Python (Flask) for the backend and html/css/js for the frontend which utilized a
+                    fine-tuned OpenAI GPT-3 model in conjuction with
+                    DALL-E 2 to generate novel and relevant picture books</li>
             </ul>
-            <h3>Manifold Group: <br class="mobile"><span class="italics">Data Analysis Intern</span> <small>July 2021 –
-                    <br class="mobile">Aug 2021</small></h3>
+            <h3>LLVM Compiler (Class: <a
+                    href="https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/322.html">Compiler
+                    Construction</a>) <small>Fall 2022</small></h3>
             <ul>
-                <li>Wrote market analysis for <a href="https://goyellowbird.com/">Yellowbird</a> which contributed to
-                    firms’s decision to invest a sum which in the past two years (as of 06-20-23) has increased in value
-                    by 250%</li>
-                <li>Sourced, prepared, and analyzed market, financial, and founder data for ventures at various stages
-                    in the investment pipeline</li>
+                <li>Built an LLVM➞Assembly compiler in C++</li>
             </ul>
         </div>
 
         <h2>Education</h2>
         <div class="edu-cols">
-            <h3>BA: <span class="italics">Mathematics,</span> <br class="mobile"><span class="italics">Computer
-                    Science</span> <small>Sep 2019 – <br class="mobile">June 2023</small></h3>
+            <h3>BA: <span class="italics">Computer Science,</span> <br class="mobile"><span class="italics">Mathematics</span> 
+                <small>Sep 2019 – <br class="mobile">June 2023</small></h3>
             <ul class="bachelors emdash-separated">
                 <li>Northwestern University, Evanston, IL</li>
                 <li>Weinberg College of Arts and Sciences</li>
@@ -114,27 +107,6 @@
             <div class="no-print">
                 <h3>Notable Coursework</h3>
                 <div class="coursework">
-                    <details class="math">
-                        <summary>Mathematics</summary>
-                        <div>
-                            <small>Major GPA: 3.30/4.00</small>
-                            <ul>
-                                <li><a
-                                        href="https://class-descriptions.northwestern.edu/4780/WCAS/MATH/31533">Optimization</a>
-                                </li>
-                                <li><a href="https://class-descriptions.northwestern.edu/4820/WCAS/MATH/35779">Graph
-                                        Theory</a></li>
-                                <li><a href="https://class-descriptions.northwestern.edu/4860/WCAS/MATH/35972">Complex
-                                        Analysis</a></li>
-                                <li><a href="https://class-descriptions.northwestern.edu/4880/WCAS/MATH/16484">Abstract
-                                        Algebra</a></li>
-                                <li><a href="https://class-descriptions.northwestern.edu/4840/WCAS/MATH/16596">Chaotic
-                                        Dynamical Systems</a></li>
-                                <li>Probability and Stochastic Processes Sequence</li>
-                                <li>Linear Algebra and Multivariable Calculus Sequence</li>
-                            </ul>
-                        </div>
-                    </details>
                     <details class="cs">
                         <summary>Computer Science</summary>
                         <div>
@@ -187,6 +159,26 @@
                             </ul>
                         </div>
                     </details>
+                    <details class="math">
+                        <summary>Mathematics</summary>
+                        <div>
+                            <small>Major GPA: 3.30/4.00</small>
+                            <ul>
+                                <li><a href="https://class-descriptions.northwestern.edu/4780/WCAS/MATH/31533">Optimization</a>
+                                </li>
+                                <li><a href="https://class-descriptions.northwestern.edu/4820/WCAS/MATH/35779">Graph
+                                        Theory</a></li>
+                                <li><a href="https://class-descriptions.northwestern.edu/4860/WCAS/MATH/35972">Complex
+                                        Analysis</a></li>
+                                <li><a href="https://class-descriptions.northwestern.edu/4880/WCAS/MATH/16484">Abstract
+                                        Algebra</a></li>
+                                <li><a href="https://class-descriptions.northwestern.edu/4840/WCAS/MATH/16596">Chaotic
+                                        Dynamical Systems</a></li>
+                                <li>Probability and Stochastic Processes Sequence</li>
+                                <li>Linear Algebra and Multivariable Calculus Sequence</li>
+                            </ul>
+                        </div>
+                    </details>
                     <details class="other">
                         <summary>Other</summary>
                         <div>
@@ -215,36 +207,42 @@
             </div>
         </div>
 
-        <div id="projects" class="no-print">
-            <h2>Projects</h2>
-            <h3>This website <small>Summer 2023-Present</small></h3>
+        <h2>Experience</h2>
+        <div class="exp-cols">
+            <h3>Schwartz Lab: <br class="mobile"><span class="italics">Lab Tech</span> <small>July 2023 – <br
+                        class="mobile">Sep 2023</small></h3>
             <ul>
-                <li>Built with HTML and SCSS, runs on an Apache Web Server</li>
+                <li>Developed supervised 3d Convolutional Neural Network in PyTorch</li>
+                <li>Extended PyTorch <a
+                        href="https://pytorch.org/docs/stable/autograd.html#function">torch.autograd.Function</a> class
+                    to integrate 3d➞2d point projection into <a
+                        href="https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html">autograd</a></li>
+                <li>Set up extrinsic camera calibration routine by implementing <a
+                        href="https://en.wikipedia.org/wiki/Levenberg%E2%80%93Marquardt_algorithm">Levenberg-Marquardt</a>
+                    for <a href="https://en.wikipedia.org/wiki/Bundle_adjustment">Bundle Adjustment</a></li>
+                <li>Manually labelled 8,544 ground truth 2d points using self-made image labeling program</li>
             </ul>
-            <h3>LLVM Compiler (Class: <a
-                    href="https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/322.html">Compiler
-                    Construction</a>) <small>Fall 2022</small></h3>
+            <!--<h3>Manifold Group: <br class="mobile"><span class="italics">Data Science Intern</span> <small>July 2022 –
+                    <br class="mobile">Aug 2022</small></h3>
             <ul>
-                <li>Built an LLVM➞Assembly compiler</li>
+                <li>Collaborated with head of data analytics to build a modular and extendable data pipeline in Python
+                    using
+                    Pandas and NumPy</li>
+                <li>Visualized data for head of data analytics and partners using Matplotlib and Altair</li>
             </ul>
-            <h3>Story Painter (Class: <a
-                    href="https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/338-2.html">Practicum
-                    in Intelligent Information Systems</a>) <small>Fall 2022</small></h3>
+            <h3>Manifold Group: <br class="mobile"><span class="italics">Data Analysis Intern</span> <small>July 2021 –
+                    <br class="mobile">Aug 2021</small></h3>
             <ul>
-                <li>Collaborated on a team of three people to create a system that takes in a short story and outputs a
-                    picture
-                    book that fits the story</li>
-                <li>Built as a web app using Python (Flask) for the backend and html/css/js for the frontend and used a
-                    fine-tuned OpenAI GPT-3 model in conjuction with
-                    DALL-E 2 to generate novel and relevant picture books</li>
-            </ul>
+                <li>Wrote market analysis for <a href="https://goyellowbird.com/">Yellowbird</a> which contributed to
+                    firms’s decision to invest a sum which in the past two years (as of 06-20-23) has increased in value
+                    by 250%</li>
+                <li>Sourced, prepared, and analyzed market, financial, and founder data for ventures at various stages
+                    in the investment pipeline</li>
+            </ul>-->
         </div>
-
     </main>
     <footer>
-        <p class="no-print">&nbsp;</p>
-        <p class="no-print hide">Try saving this webpage as a PDF! (select File > Print)</p>
-        <p class="print"><a href="https://patrickdwyer.com">Click here to check out my website!</a></p>
+        <p>&nbsp;</p>
     </footer>
     <svg id="sprites" role="presentation">
         <symbol id="i-github" viewBox="0 0 500 500">

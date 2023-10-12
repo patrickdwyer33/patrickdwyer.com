@@ -4,13 +4,16 @@
     }
 
     html {
-        font-size: 11pt;
+        font-size: 10pt;
     }
 
     body {
-        background-color: revert;
+        background-color: gray;
         width: calc(8.5in - 3cm);
         height: calc(11in - 3cm);
+        h2 {
+            padding-top: 4px;
+        }
         .contact-info, footer {
             margin: 0;
             padding: 8px 0;
@@ -56,8 +59,13 @@
         }
         main {
             margin: 0;
-            padding: 5px 0;
+            padding: 10px 0;
             box-shadow: none;
+            a {
+                &:visited, &:focus {
+                        color: hsl(240 100% 47%);
+                    }
+            }
         }
 
         br {

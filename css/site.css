@@ -412,7 +412,7 @@ span.italics {
 }
 
 @media screen and (min-width: 650px) {
-  #skills-cols {
+  .skills-cols {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     -webkit-column-gap: 1em;
@@ -478,16 +478,12 @@ span.italics {
   text-align: right;
 }
 
-#projects h3 {
+.projects h3 {
   -webkit-column-gap: 0px;
      -moz-column-gap: 0px;
           column-gap: 0px;
 }
-#projects h3 a {
-  display: contents;
-}
-#projects h3 a::before {
-  content: " ";
+.projects h3 a {
   display: contents;
 }
 
@@ -496,12 +492,15 @@ span.italics {
     margin: 2cm 2cm;
   }
   html {
-    font-size: 11pt;
+    font-size: 10pt;
   }
   body {
-    background-color: revert;
+    background-color: gray;
     width: 7.3188976378in;
     height: 9.8188976378in;
+  }
+  body h2 {
+    padding-top: 4px;
   }
   body .contact-info, body footer {
     margin: 0;
@@ -550,9 +549,12 @@ span.italics {
   }
   body main {
     margin: 0;
-    padding: 5px 0;
+    padding: 10px 0;
     -webkit-box-shadow: none;
             box-shadow: none;
+  }
+  body main a:visited, body main a:focus {
+    color: hsl(240, 100%, 47%);
   }
   body br {
     display: none;
