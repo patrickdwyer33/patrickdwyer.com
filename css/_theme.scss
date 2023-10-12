@@ -57,6 +57,19 @@ main a {
 
 footer, .contact-info {
     padding: 0.5em 0;
+    a {
+        color: hsl(0 0% 100% / 0.7);
+        transition: color 400ms;
+        text-decoration: none;
+        line-height: 1;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        
+        &:hover, &:active, &:focus {
+            color: white;
+        }
+    }
 }
 
 footer {
@@ -66,22 +79,14 @@ footer {
     max-width: var(--page-width);
     justify-content: center;
 
-    p {
-        padding: 0;
-        margin: 0;
-        height: 1.5em
-    }
-
     a {
-        line-height: 1;
         padding: 0 0.5em;
-        color: hsl(0 0% 100% / 0.7);
-        transition: color 400ms;
-        
-        &:hover,
-        &:active,
-        &:focus {
-            color: white;
+        height: 1.5em;
+        border: 1px solid hsl(0 0% 100% / 0.7);
+        border-radius: 10px;
+        transition: border-color 400ms;
+        &:hover, &:active, &:focus {
+            border-color: white;
         }
     }
 }
@@ -143,19 +148,7 @@ svg#sprites {
     justify-content: center;
 
     a {
-        display: flex;
         column-gap: 0.25em;
-        align-items: center;
-        line-height: 1;
-        color: hsl(0 0% 100% / 0.7);
-        text-decoration: none;
-        transition: color 400ms;
-
-        &:hover,
-        &:active,
-        &:focus {
-            color: white;
-        }
     }
 
     svg {
