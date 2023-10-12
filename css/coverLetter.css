@@ -245,6 +245,23 @@ main a:visited, main a:focus {
 footer, .contact-info {
   padding: 0.5em 0;
 }
+footer a, .contact-info a {
+  color: hsla(0, 0%, 100%, 0.7);
+  -webkit-transition: color 400ms;
+  transition: color 400ms;
+  text-decoration: none;
+  line-height: 1;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+footer a:hover, footer a:active, footer a:focus, .contact-info a:hover, .contact-info a:active, .contact-info a:focus {
+  color: white;
+}
 
 footer {
   background-color: hsl(205, 32%, 48%);
@@ -257,20 +274,16 @@ footer {
       -ms-flex-pack: center;
           justify-content: center;
 }
-footer p {
-  padding: 0;
-  margin: 0;
-  height: 1.5em;
-}
 footer a {
-  line-height: 1;
   padding: 0 0.5em;
-  color: hsla(0, 0%, 100%, 0.7);
-  -webkit-transition: color 400ms;
-  transition: color 400ms;
+  height: 1.5em;
+  border: 1px solid hsla(0, 0%, 100%, 0.7);
+  border-radius: 10px;
+  -webkit-transition: border-color 400ms;
+  transition: border-color 400ms;
 }
 footer a:hover, footer a:active, footer a:focus {
-  color: white;
+  border-color: white;
 }
 
 svg#sprites {
@@ -330,23 +343,9 @@ svg#sprites {
           justify-content: center;
 }
 .contact-info a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-column-gap: 0.25em;
      -moz-column-gap: 0.25em;
           column-gap: 0.25em;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  line-height: 1;
-  color: hsla(0, 0%, 100%, 0.7);
-  text-decoration: none;
-  -webkit-transition: color 400ms;
-  transition: color 400ms;
-}
-.contact-info a:hover, .contact-info a:active, .contact-info a:focus {
-  color: white;
 }
 .contact-info svg {
   height: 1.5em;
