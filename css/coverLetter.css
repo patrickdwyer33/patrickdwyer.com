@@ -269,18 +269,6 @@ footer {
       -ms-flex-pack: center;
           justify-content: center;
 }
-footer a {
-  padding: 0 0.5em;
-  height: 1.5em;
-  background-color: hsla(0, 0%, 100%, 0.7);
-  border-radius: 0.2em;
-  -webkit-transition: background-color 400ms;
-  transition: background-color 400ms;
-  color: hsl(205, 32%, 48%);
-}
-footer a:hover, footer a:active, footer a:focus {
-  background-color: white;
-}
 
 svg#sprites {
   visibility: hidden;

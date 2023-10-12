@@ -8,7 +8,7 @@
     }
 
     body {
-        background-color: gray;
+        background-color: revert;
         width: calc(8.5in - 3cm);
         height: calc(11in - 3cm);
         h2 {
@@ -20,6 +20,11 @@
         }
         .contact-info {
             position: static;
+        }
+        footer p {
+            height: 1.5em;
+            margin: 0;
+            padding: 0;
         }
         .intro {
             display: grid;
@@ -85,6 +90,9 @@
             &:not(:last-child)::after {
                 content: " — ";
             }
+        }
+        #this-site-link {
+            display: revert;
         }
     }
 

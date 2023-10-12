@@ -269,18 +269,6 @@ footer {
       -ms-flex-pack: center;
           justify-content: center;
 }
-footer a {
-  padding: 0 0.5em;
-  height: 1.5em;
-  background-color: hsla(0, 0%, 100%, 0.7);
-  border-radius: 0.2em;
-  -webkit-transition: background-color 400ms;
-  transition: background-color 400ms;
-  color: hsl(205, 32%, 48%);
-}
-footer a:hover, footer a:active, footer a:focus {
-  background-color: white;
-}
 
 svg#sprites {
   visibility: hidden;
@@ -487,6 +475,23 @@ span.italics {
   display: contents;
 }
 
+#resume-download-btn {
+  padding: 0 0.5em;
+  height: 1.5em;
+  background-color: hsla(0, 0%, 100%, 0.7);
+  border-radius: 0.2em;
+  -webkit-transition: background-color 400ms;
+  transition: background-color 400ms;
+  color: hsl(205, 32%, 48%);
+}
+#resume-download-btn:hover, #resume-download-btn:active, #resume-download-btn:focus {
+  background-color: white;
+}
+
+#this-site-link {
+  display: none;
+}
+
 @media print {
   @page {
     margin: 2cm 2cm;
@@ -495,7 +500,7 @@ span.italics {
     font-size: 10pt;
   }
   body {
-    background-color: gray;
+    background-color: revert;
     width: 7.3188976378in;
     height: 9.8188976378in;
   }
@@ -508,6 +513,11 @@ span.italics {
   }
   body .contact-info {
     position: static;
+  }
+  body footer p {
+    height: 1.5em;
+    margin: 0;
+    padding: 0;
   }
   body .intro {
     display: grid;
@@ -570,5 +580,8 @@ span.italics {
   }
   body .emdash-separated li:not(:last-child)::after {
     content: " — ";
+  }
+  body #this-site-link {
+    display: revert;
   }
 }

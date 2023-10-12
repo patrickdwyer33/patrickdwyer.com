@@ -106,5 +106,22 @@ span.italics {
 	}
 }
 
+#resume-download-btn {
+	padding: 0 0.5em;
+	height: 1.5em;
+	background-color: hsl(0 0% 100% / 0.7);
+	border-radius: 0.2em;
+	transition: background-color 400ms;
+	color: hsl(205, 32%, 48%);
+
+	&:hover, &:active, &:focus {
+		background-color: white;
+	}
+}
+
+#this-site-link {
+	display: none;
+}
+
 
 @import 'print';
