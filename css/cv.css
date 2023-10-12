@@ -585,3 +585,8 @@ span.italics {
     display: revert;
   }
 }
+@media print {
+  footer {
+    display: none;
+  }
+}

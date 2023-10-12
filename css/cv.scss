@@ -125,3 +125,9 @@ span.italics {
 
 
 @import 'print';
+
+@media print {
+	footer {
+		display: none;
+	}
+}
