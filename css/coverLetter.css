@@ -247,8 +247,6 @@ footer, .contact-info {
 }
 footer a, .contact-info a {
   color: hsla(0, 0%, 100%, 0.7);
-  -webkit-transition: color 400ms;
-  transition: color 400ms;
   text-decoration: none;
   line-height: 1;
   margin: 0;
@@ -258,9 +256,6 @@ footer a, .contact-info a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-footer a:hover, footer a:active, footer a:focus, .contact-info a:hover, .contact-info a:active, .contact-info a:focus {
-  color: white;
 }
 
 footer {
@@ -277,13 +272,14 @@ footer {
 footer a {
   padding: 0 0.5em;
   height: 1.5em;
-  border: 1px solid hsla(0, 0%, 100%, 0.7);
-  border-radius: 10px;
-  -webkit-transition: border-color 400ms;
-  transition: border-color 400ms;
+  background-color: hsla(0, 0%, 100%, 0.7);
+  border-radius: 0.2em;
+  -webkit-transition: background-color 400ms;
+  transition: background-color 400ms;
+  color: hsl(205, 32%, 48%);
 }
 footer a:hover, footer a:active, footer a:focus {
-  border-color: white;
+  background-color: white;
 }
 
 svg#sprites {
@@ -346,6 +342,11 @@ svg#sprites {
   -webkit-column-gap: 0.25em;
      -moz-column-gap: 0.25em;
           column-gap: 0.25em;
+  -webkit-transition: color 400ms;
+  transition: color 400ms;
+}
+.contact-info a:hover, .contact-info a:active, .contact-info a:focus {
+  color: white;
 }
 .contact-info svg {
   height: 1.5em;
