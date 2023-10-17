@@ -432,7 +432,7 @@ span.italics {
 }
 
 @media screen and (min-width: 650px) {
-  .edu-cols .coursework {
+  .edu-cols div.coursework {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     -webkit-column-gap: 1em;
@@ -443,22 +443,22 @@ span.italics {
             align-items: start;
   }
 }
-.edu-cols .coursework summary {
+.edu-cols div.coursework summary {
   background-color: hsl(0, 0%, 95%);
   padding: 0.5em 1em;
 }
-.edu-cols .coursework details {
+.edu-cols div.coursework details {
   border: 1px solid hsl(0, 0%, 90%);
   margin-bottom: 1em;
   border-radius: 0.2em;
 }
-.edu-cols .coursework details > div {
+.edu-cols div.coursework details > div {
   padding: 0.5em;
 }
-.edu-cols .coursework details > div :last-child {
+.edu-cols div.coursework details > div :last-child {
   margin-bottom: 0;
 }
-.edu-cols .coursework small {
+.edu-cols div.coursework small {
   display: block;
   font-style: italic;
   color: hsl(0, 0%, 20%);
