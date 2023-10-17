@@ -67,7 +67,7 @@ span.italics {
 }
 
 .edu-cols {
-	.coursework {
+	div.coursework {
 		@media screen and (min-width: 650px) {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
