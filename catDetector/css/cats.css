@@ -122,8 +122,11 @@ sup {
 }
 
 .rotate-wheel {
-  display: grid;
-  grid-template-columns: 1fr 5fr 5fr 5fr 1fr;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0;
 }
 .rotate-wheel img.selected {
   border: 5px solid hsl(204, 88%, 63%);
@@ -137,19 +140,12 @@ sup {
 .rotate-wheel ul {
   display: contents;
 }
-.rotate-wheel input#right {
-  grid-column: -2/-1;
-  grid-row: 1;
-}
-.rotate-wheel input#left {
-  grid-column: 1/2;
-  grid-row: 1;
-}
 .rotate-wheel img {
   margin: 0;
   padding: 0;
   border-radius: 20px;
+  height: 281.469px;
 }
 .rotate-wheel img.selected {
-  grid-column: 3;
+  z-index: 1;
 }

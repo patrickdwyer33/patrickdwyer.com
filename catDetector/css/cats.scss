@@ -1,5 +1,6 @@
 @use 'boilerplate' as *;
 .rotate-wheel {
+    position: relative;
     img.selected {
         border: 5px solid hsl(204, 88%, 63%);
     }
@@ -12,22 +13,23 @@
     ul {
         display: contents;
     }
-    display: grid;
-    grid-template-columns: 1fr 5fr 5fr 5fr 1fr;
-    input#right {
-        grid-column: -2 / -1;
-        grid-row: 1;
-    }
-    input#left {
-        grid-column: 1 / 2;
-        grid-row: 1;
-    }
+    display: flex;
+    gap: 0;
     img {
         margin: 0;
         padding: 0;
         border-radius: 20px;
+        height: 281.469px;
     }
     img.selected {
-        grid-column: 3;
+        z-index: 1;
     }
+    // img:nth-child(1) {
+    //     grid-column: 2;
+    //     grid-row: 1;
+    // }
+    // img:nth-child(3) {
+    //     grid-column: 4;
+    //     grid-row: 1;
+    // }
 }
