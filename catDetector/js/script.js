@@ -9,17 +9,21 @@ mobilenet.load().then((model) => {
 			.then((preds) => {
 				let foundCat = false;
 				preds.forEach((pred) => {
+					const catClassCond =
+						pred.className.toLowerCase().includes(" cat") ||
+						pred.className.toLowerCase() === "cat" ||
+						pred.className.toLowerCase().includes("cat ");
 					if (
 						!foundCat &&
-						pred.className.toLowerCase().includes("cat")
+						catClassCond &&
+						pred.probability >= 0.025
 					) {
-						console.log(pred.className);
+						console.log(
+							`Model predicted className: ${pred.className} with confidence: ${pred.probability}`
+						);
 						foundCat = true;
 						alert("CAT DETECTED");
-					} else if (
-						foundCat &&
-						pred.className.toLowerCase().includes("cat")
-					)
+					} else if (foundCat && catClassCond)
 						console.log(pred.className);
 				});
 				if (!foundCat) alert("no cat :(");
