@@ -1,0 +1,17 @@
+@use 'boilerplate' as *;
+#all-images {
+    img.selected {
+        border: 5px solid hsl(204, 88%, 63%);
+    }
+    li {
+        display: none;
+    }
+    li.vis {
+        display: contents;
+    }
+    display: flex;
+    img {
+        margin: 0;
+        border-radius: 20px;
+    }
+}

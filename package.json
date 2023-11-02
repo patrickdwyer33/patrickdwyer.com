@@ -11,8 +11,5 @@
     "url": "git@github.com:patrickdwyer33/patrickdwyer.com.git"
   },
   "author": "Patrick Dwyer",
-  "license": "N/A",
-  "dependencies": {
-    "@tensorflow-models/mobilenet": "^2.1.1"
-  }
+  "license": "N/A"
 }

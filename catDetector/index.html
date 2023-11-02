@@ -6,6 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Cat Detector</title>
 	<link rel="stylesheet" href="/catDetector/css/cats.css">
+	<!-- Load TensorFlow.js. This is required to use MobileNet. -->
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.1"> </script>
+	<!-- Load the MobileNet model. -->
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"> </script>
 	<script defer src="/catDetector/js/script.js"></script>
 </head>
 <body>
@@ -17,12 +21,17 @@
 		</hgroup>
 		<h2>Choose a picture</h2>
 		<p>Choose any of the pictures below, or upload your own, and the cat detector will detect any cats within</p>
-		<ul>
-			<li><img src="/images/cats/valkyrie.webp" alt="Valkyrie"></li>
-			<li><img src="/images/cats/babayaga.webp" alt="Baba Yaga"></li>
-			<li><img src="/images/headshot.webp" alt="Patrick"></li>
-		</ul>
+		<div class="rotate-wheel">
+			<input value="&lt;" type="button" class="image-scroll" id="left"/>
+			<ul id="all-images">
+				<li class="vis"><img src="/images/cats/valkyrie.webp" alt="Valkyrie"></li>
+				<li class="vis"><img src="/images/cats/babayaga.webp" alt="Baba Yaga"></li>
+				<li class="vis"><img src="/images/headshot.webp" alt="Patrick"></li>
+			</ul>
+			<input value="&gt;" type="button" class="image-scroll" id="right" />
+		</div>
 		<input type="file"/>
+		<input id="classify-button" type="button" value="Search Image for Cats"/>
 	</main>
 	<footer></footer>
 </body>
