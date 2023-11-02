@@ -47,6 +47,8 @@ mobilenet.load().then((model) => {
 		document.querySelectorAll("#all-images li.vis").forEach((li) => {
 			if (!newVisEles.includes(li)) li.classList.remove("vis");
 		});
+		visImages = allImages.querySelectorAll("li.vis img");
+		updateVisImages(visImages);
 	});
 
 	function rotateWheel(id) {
@@ -88,19 +90,46 @@ mobilenet.load().then((model) => {
 	});
 
 	let visImages = allImages.querySelectorAll("li.vis img");
-	visImages.forEach((img) => {
-		img.addEventListener("click", () => {
-			if (img === selectedImage) return;
-			selectedImage.classList.remove("selected");
-			img.classList.add("selected");
-			selectedImage = img;
-			document.dispatchEvent(newSelectedImageEvent);
+	updateVisImages(visImages);
+	function updateVisImages(visImages) {
+		visImages.forEach((img) => {
+			img.addEventListener("click", () => {
+				if (img === selectedImage) return;
+				selectedImage.classList.remove("selected");
+				img.classList.add("selected");
+				selectedImage = img;
+				document.dispatchEvent(newSelectedImageEvent);
+			});
 		});
-	});
+	}
 
 	const classifyButton = document.querySelector("#classify-button");
 	classifyButton.addEventListener("click", () => {
 		const img = document.querySelector("#all-images img.selected");
 		classifyImage(img, model);
+	});
+
+	const fileInput = document.querySelector("input#file-submit");
+	const fileNames = [];
+	fileInput.addEventListener("change", function (e) {
+		if (FileReader && e.target.files && e.target.files.length) {
+			Array.from(e.target.files).forEach((file) => {
+				if (!fileNames.includes(file)) {
+					console.log("test");
+					fileNames.push(file);
+					const li = document.createElement("li");
+					const newImg = document.createElement("img");
+					var fr = new FileReader();
+					fr.onload = function () {
+						newImg.src = fr.result;
+						newImg.alt = "Schrödinger's cat";
+					};
+					fr.readAsDataURL(file);
+					li.appendChild(newImg);
+					document.querySelector("#all-images").appendChild(li);
+					document.dispatchEvent(newSelectedImageEvent);
+				}
+			});
+		}
 	});
 });
