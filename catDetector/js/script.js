@@ -9,10 +9,18 @@ mobilenet.load().then((model) => {
 			.then((preds) => {
 				let foundCat = false;
 				preds.forEach((pred) => {
-					if (pred.className.toLowerCase().includes("cat")) {
+					if (
+						!foundCat &&
+						pred.className.toLowerCase().includes("cat")
+					) {
+						console.log(pred.className);
 						foundCat = true;
 						alert("CAT DETECTED");
-					}
+					} else if (
+						foundCat &&
+						pred.className.toLowerCase().includes("cat")
+					)
+						console.log(pred.className);
 				});
 				if (!foundCat) alert("no cat :(");
 			})
