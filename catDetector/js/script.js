@@ -28,7 +28,9 @@ mobilenet.load().then((model) => {
 				});
 				if (!foundCat) alert("no cat :(");
 			})
-			.catch();
+			.catch((err) => {
+				throw err;
+			});
 	}
 
 	let allImages = document.querySelector("#all-images");
@@ -123,6 +125,7 @@ mobilenet.load().then((model) => {
 					fileNames.push(file);
 					const li = document.createElement("li");
 					const newImg = document.createElement("img");
+					li.classList.add("vis");
 					var fr = new FileReader();
 					fr.onload = function () {
 						newImg.src = fr.result;
@@ -131,6 +134,9 @@ mobilenet.load().then((model) => {
 					fr.readAsDataURL(file);
 					li.appendChild(newImg);
 					document.querySelector("#all-images").appendChild(li);
+					selectedImage.classList.remove("selected");
+					newImg.classList.add("selected");
+					selectedImage = newImg;
 					document.dispatchEvent(newSelectedImageEvent);
 				}
 			});
