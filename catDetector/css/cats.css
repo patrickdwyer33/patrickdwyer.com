@@ -121,31 +121,31 @@ sup {
   top: -0.5em;
 }
 
-.rotate-wheel {
+#image-wheel {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 0;
 }
-.rotate-wheel img.selected {
+#image-wheel img.selected {
   border: 5px solid hsl(204, 88%, 63%);
 }
-.rotate-wheel li {
+#image-wheel li {
   display: none;
 }
-.rotate-wheel li.vis {
+#image-wheel li.vis {
   display: contents;
 }
-.rotate-wheel ul {
+#image-wheel ul {
   display: contents;
 }
-.rotate-wheel img {
+#image-wheel img {
   margin: 0;
   padding: 0;
   border-radius: 20px;
   height: 281.469px;
 }
-.rotate-wheel img.selected {
+#image-wheel img.selected {
   z-index: 1;
 }

@@ -1,5 +1,5 @@
 @use 'boilerplate' as *;
-.rotate-wheel {
+#image-wheel {
     position: relative;
     img.selected {
         border: 5px solid hsl(204, 88%, 63%);

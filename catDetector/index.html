@@ -21,17 +21,13 @@
 		</hgroup>
 		<h2>Choose a picture</h2>
 		<p>Choose any of the pictures below, or upload your own, and the cat detector will detect any cats within</p>
-		<div class="rotate-wheel">
-			<input value="&lt;" type="button" class="image-scroll" id="left"/>
-			<ul id="all-images">
-				<li class="vis"><img src="/images/valkyrie.png" alt="Valkyrie"></li>
-				<li class="vis"><img src="/images/babayaga.png" alt="Baba Yaga"></li>
-				<li class="vis"><img src="/images/headshot.webp" alt="Patrick"></li>
-			</ul>
-			<input value="&gt;" type="button" class="image-scroll" id="right" />
-		</div>
+		<ul id="image-wheel">
+			<li class="vis"><img src="/images/valkyrie.png" alt="Valkyrie"></li>
+			<li class="vis"><img src="/images/babayaga.png" alt="Baba Yaga"></li>
+			<li class="vis"><img src="/images/headshot.webp" alt="Patrick"></li>
+		</ul>
 		<input id="file-submit" type="file"/>
-		<input id="classify-button" type="button" value="Search Image for Cats"/>
+		<input id="classify-button" disabled type="button" value="Search Image for Cats"/>
 	</main>
 	<footer></footer>
 </body>
