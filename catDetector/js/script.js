@@ -14,7 +14,12 @@ let changingSelected = false;
 const fileNames = [];
 
 function selectImage(img) {
-	if (changingSelected) return;
+	if (changingSelected) {
+		setTimeout(() => {
+			selectImage(img);
+		}, 100);
+		return;
+	}
 	changingSelected = true;
 	if (selectedImage) selectedImage.classList.remove("selected");
 	img.classList.add("selected");
@@ -57,19 +62,36 @@ imageWheel.addEventListener("click", function (e) {
 
 imageWheel.addEventListener("new-selected-image", () => {
 	const selectedParent = selectedImage.parentElement;
+	if (!selectedParent.classList.contains("vis"))
+		selectedParent.classList.add("vis");
 	let newVisEles = [selectedParent];
 	const prevSibling = selectedParent.previousElementSibling;
 	const nextSibling = selectedParent.nextElementSibling;
 	if (prevSibling !== null) {
 		prevSibling.classList.add("vis");
+		prevSibling.classList.add("left");
 		newVisEles.push(prevSibling);
 	}
 	if (nextSibling !== null) {
 		nextSibling.classList.add("vis");
+		nextSibling.classList.add("right");
 		newVisEles.push(nextSibling);
 	}
+	if (nextSibling && nextSibling.classList.contains("left"))
+		nextSibling.classList.remove("left");
+	if (prevSibling && prevSibling.classList.contains("right"))
+		prevSibling.classList.remove("right");
+	if (selectedParent.classList.contains("left"))
+		selectedParent.classList.remove("left");
+	if (selectedParent.classList.contains("right"))
+		selectedParent.classList.remove("right");
+
 	document.querySelectorAll("#image-wheel li.vis").forEach((li) => {
-		if (!newVisEles.includes(li)) li.classList.remove("vis");
+		if (!newVisEles.includes(li)) {
+			li.classList.remove("vis");
+			if (li.classList.contains("left")) li.classList.remove("left");
+			if (li.classList.contains("right")) li.classList.remove("right");
+		}
 	});
 	visImages = imageWheel.querySelectorAll("li.vis img");
 	if (classifyButton.disabled) classifyButton.disabled = false;
@@ -90,7 +112,6 @@ fileInput.addEventListener("change", function (e) {
 				fileNames.push(file);
 				const li = document.createElement("li");
 				const newImg = document.createElement("img");
-				li.classList.add("vis");
 				var fr = new FileReader();
 				fr.onload = function () {
 					newImg.src = fr.result;

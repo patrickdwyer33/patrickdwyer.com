@@ -1,28 +1,61 @@
 @use 'boilerplate' as *;
+
+body {
+	@media screen and (min-width: 600px) {
+		display: flex;
+		justify-content: center;
+	}
+	header {
+		display: none;
+	}
+	footer {
+		display: none;
+	}
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	padding-top: 1em;
+	@media screen and (min-width: 600px) {
+		width: 50vw;
+	}
+}
+
 #image-wheel {
-    position: relative;
-    img.selected {
-        border: 5px solid hsl(204, 88%, 63%);
-    }
-    li {
-        display: none;
-    }
-    li.vis {
-        display: contents;
-    }
-    ul {
-        display: contents;
-    }
-    display: flex;
-    gap: 0;
-    img {
-        margin: 0;
-        padding: 0;
-        border-radius: 20px;
-        height: 281.469px;
-    }
-    img.selected {
-        z-index: 1;
-    }
-    
+	display: flex;
+	flex-wrap: nowrap;
+	position: relative;
+	gap: 0;
+	padding: 0;
+	width: 100%;
+	height: 15vw;
+	overflow: hidden;
+	justify-content: center;
+	li {
+		display: none;
+	}
+	li.vis {
+		display: contents;
+	}
+	img {
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		min-height: 100%;
+		max-width: calc(100% / 3);
+		top: 50%;
+		transform: translate(0%, -50%)
+	}
+	img.selected {
+		z-index: 1;
+		border: 5px solid hsl(204, 88%, 63%);
+		max-width: 50%;
+	}
+	li.left img {
+		transform: translate(-100%, -50%)
+	}
+	li.right img {
+		transform: translate(100%, -50%)
+	}
 }
