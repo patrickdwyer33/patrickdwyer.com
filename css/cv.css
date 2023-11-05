@@ -529,7 +529,7 @@ span.italics {
   body .intro img {
     grid-column: 1;
     float: none;
-    width: auto;
+    width: 190px;
     grid-row: 1/3;
   }
   body .intro h1,
