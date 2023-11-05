@@ -1,4 +1,49 @@
-const DEBUG = false;
+const felidae = [
+    "cat",
+    "lion",
+    "serval",
+    "leopard",
+    "caracal",
+    "tiger",
+    "lynxes",
+    "jaguar",
+    "panthera",
+    "cheetah",
+    "cougar",
+    "ocelot",
+    "felis",
+    "felinae",
+    "wildcat",
+    "snow leopard",
+    "leopard cat",
+    "sand cat",
+    "fishing cat",
+    "jaguarundi",
+    "pantherinae",
+    "saber-toothed cat",
+    "pallass cat",
+    "oncilla",
+    "margay",
+    "clouded leopard",
+    "black-footed cat",
+    "kodkod",
+    "proailurus",
+    "machairodus",
+    "jungle cat",
+    "geoffroys cat",
+    "mellivorodon",
+    "flat-headed cat",
+    "machairodontinae",
+    "homotherium",
+    "iriomote cat",
+    "pumapard",
+    "rusty-spotted cat",
+    "miopanthera",
+    "asian golden cat",
+    "andean mountain cat",
+    "marbled cat"
+]
+const DEBUG = true;
 
 const newSelectedImageEvent = new CustomEvent("new-selected-image");
 const newImageEvent = new CustomEvent("new-image");
@@ -56,7 +101,12 @@ document.addEventListener("keydown", (e) => {
 });
 
 imageWheel.addEventListener("click", function (e) {
-	if (e.target === selectedImage || e.target === e.currentTarget) return;
+	if (
+		e.target === selectedImage ||
+		e.target === e.currentTarget ||
+		e.target === imageWheel.querySelector("ul")
+	)
+		return;
 	selectImage(e.target);
 });
 
@@ -65,8 +115,23 @@ imageWheel.addEventListener("new-selected-image", () => {
 	if (!selectedParent.classList.contains("vis"))
 		selectedParent.classList.add("vis");
 	let newVisEles = [selectedParent];
-	const prevSibling = selectedParent.previousElementSibling;
-	const nextSibling = selectedParent.nextElementSibling;
+	let prevSibling = selectedParent.previousElementSibling;
+	let nextSibling = selectedParent.nextElementSibling;
+	const listEle = imageWheel.querySelector("ul");
+	if (prevSibling === null) {
+		const lastEle = imageWheel.querySelector("li:last-child");
+		lastEle.remove();
+		listEle.insertBefore(lastEle, listEle.firstChild);
+		prevSibling = selectedParent.previousElementSibling;
+		DEBUG && console.log(prevSibling);
+	}
+	if (nextSibling === null) {
+		const lastEle = imageWheel.querySelector("li:nth-child(1)");
+		lastEle.remove();
+		listEle.appendChild(lastEle);
+		nextSibling = selectedParent.nextElementSibling;
+		DEBUG && console.log(nextSibling);
+	}
 	if (prevSibling !== null) {
 		prevSibling.classList.add("vis");
 		prevSibling.classList.add("left");
@@ -119,7 +184,7 @@ fileInput.addEventListener("change", function (e) {
 				};
 				fr.readAsDataURL(file);
 				li.appendChild(newImg);
-				document.querySelector("#image-wheel").appendChild(li);
+				document.querySelector("#image-wheel ul").appendChild(li);
 				selectImage(newImg);
 			}
 		});
@@ -132,27 +197,23 @@ function classifyImage(img, model) {
 		.then((preds) => {
 			let foundCat = false;
 			preds.forEach((pred) => {
-				const catClassCond =
-					pred.className.toLowerCase().includes(" cat") ||
-					pred.className.toLowerCase() === "cat" ||
-					pred.className.toLowerCase().includes("cat ");
 				const catThreshold = 0.025;
-				if (
-					!foundCat &&
-					catClassCond &&
-					pred.probability >= catThreshold
-				) {
-					DEBUG &&
-						console.log(
-							`Model predicted className: ${pred.className} with confidence: ${pred.probability}`
-						);
-					foundCat = true;
-					document.dispatchEvent(catDetectedEvent);
-				} else if (foundCat && catClassCond)
-					DEBUG &&
-						console.log(
-							`Model predicted className: ${pred.className} with confidence: ${pred.probability}`
-						);
+				DEBUG &&
+					console.log(
+						`Model predicted className: ${pred.className} with confidence: ${pred.probability}`
+					);
+				felidae.forEach((feline) => {
+					if (
+						!foundCat &&
+						` ${pred.className.toLowerCase()}`.includes(
+							` ${feline}`
+						) &&
+						pred.probability >= catThreshold
+					) {
+						foundCat = true;
+						document.dispatchEvent(catDetectedEvent);
+					}
+				});
 			});
 			if (!foundCat) document.dispatchEvent(noCatDetectedEvent);
 		})

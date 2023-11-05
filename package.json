@@ -11,5 +11,10 @@
     "url": "git@github.com:patrickdwyer33/patrickdwyer.com.git"
   },
   "author": "Patrick Dwyer",
-  "license": "N/A"
+  "license": "N/A",
+  "dependencies": {
+    "jsdom": "^22.1.0",
+    "node-fetch": "^3.3.2"
+  },
+  "type": "module"
 }
