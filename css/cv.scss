@@ -24,6 +24,9 @@ span.italics {
 		shape-outside: circle(50%);
 		margin: 1em 1em 1em 0;
 	}
+	// @media screen and (max-width: 650px) {
+
+	// }
 	@media screen and (min-width: 650px) {
 		display: grid;
 		grid-template-columns: 200px 1fr;
@@ -44,6 +47,7 @@ span.italics {
 }
 
 .skills-cols {
+	clear: both;
 	@media screen and (min-width: 650px) {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
@@ -54,6 +58,7 @@ span.italics {
 .exp-cols {
 	display: flex;
 	flex-direction: column;
+	clear: both;
 	ul {
 		margin-bottom: var(--content-gap);
 	}

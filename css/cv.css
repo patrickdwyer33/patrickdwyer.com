@@ -212,6 +212,7 @@ h2 {
 h2 {
   border-bottom: 1px solid hsl(0, 0%, 90%);
   padding-bottom: 0.1em;
+  clear: both;
 }
 
 h3 {
@@ -399,6 +400,9 @@ span.italics {
   }
 }
 
+.skills-cols {
+  clear: both;
+}
 @media screen and (min-width: 650px) {
   .skills-cols {
     display: grid;
@@ -417,6 +421,7 @@ span.italics {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  clear: both;
 }
 .exp-cols ul {
   margin-bottom: var(--content-gap);
