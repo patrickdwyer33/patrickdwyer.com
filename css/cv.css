@@ -551,6 +551,7 @@ span.italics {
     -webkit-column-gap: 1em;
        -moz-column-gap: 1em;
             column-gap: 1em;
+    margin-bottom: 3em;
   }
   body .exp-cols ul {
     display: grid;

@@ -51,6 +51,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             column-gap: 1em;
+	        margin-bottom: 3em;
         }
         .exp-cols {
             ul {
