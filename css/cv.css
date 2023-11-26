@@ -187,6 +187,7 @@ sup {
 }
 html {
   --page-width: 1000px;
+  --pic-width: 200px;
 }
 
 body {
@@ -380,7 +381,7 @@ span.italics {
 @media screen and (min-width: 650px) {
   .intro {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: var(--pic-width) 1fr;
     -webkit-column-gap: 1em;
        -moz-column-gap: 1em;
             column-gap: 1em;
@@ -503,6 +504,7 @@ span.italics {
   }
   html {
     font-size: 10pt;
+    --print-pic-width: 100px;
   }
   body {
     background-color: revert;
@@ -526,7 +528,7 @@ span.italics {
   }
   body .intro {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: var(--print-pic-width) 1fr;
     -webkit-column-gap: 1em;
        -moz-column-gap: 1em;
             column-gap: 1em;
@@ -534,7 +536,7 @@ span.italics {
   body .intro img {
     grid-column: 1;
     float: none;
-    width: 190px;
+    width: var(--print-pic-width);
     grid-row: 1/3;
   }
   body .intro h1,
@@ -551,7 +553,6 @@ span.italics {
     -webkit-column-gap: 1em;
        -moz-column-gap: 1em;
             column-gap: 1em;
-    margin-bottom: 3em;
   }
   body .exp-cols ul {
     display: grid;

@@ -187,6 +187,7 @@ sup {
 }
 html {
   --page-width: 1000px;
+  --pic-width: 200px;
 }
 
 body {

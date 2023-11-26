@@ -29,7 +29,7 @@ span.italics {
 	// }
 	@media screen and (min-width: 650px) {
 		display: grid;
-		grid-template-columns: 200px 1fr;
+		grid-template-columns: var(--pic-width) 1fr;
 		column-gap: 1em;
 		img {
 			grid-column: 1;
