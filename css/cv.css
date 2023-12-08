@@ -554,6 +554,9 @@ span.italics {
        -moz-column-gap: 1em;
             column-gap: 1em;
   }
+  body .skills-cols ul {
+    margin-bottom: 0;
+  }
   body .exp-cols ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
