@@ -428,16 +428,6 @@ span.italics {
   margin-bottom: var(--content-gap);
 }
 @media screen and (min-width: 650px) {
-  .exp-cols ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    -webkit-column-gap: 1.5em;
-       -moz-column-gap: 1.5em;
-            column-gap: 1.5em;
-  }
-}
-
-@media screen and (min-width: 650px) {
   .edu-cols div.coursework {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -556,13 +546,6 @@ span.italics {
   }
   body .skills-cols ul {
     margin-bottom: 0;
-  }
-  body .exp-cols ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    -webkit-column-gap: 1.5em;
-       -moz-column-gap: 1.5em;
-            column-gap: 1.5em;
   }
   body footer + svg {
     display: none;

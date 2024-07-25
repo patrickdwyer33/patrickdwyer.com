@@ -57,13 +57,13 @@
             }
             
         }
-        .exp-cols {
-            ul {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                column-gap: 1.5em;
-            }
-        }
+        // .exp-cols {
+        //     // ul {
+        //     //     display: grid;
+        //     //     grid-template-columns: 1fr 1fr;
+        //     //     column-gap: 1.5em;
+        //     // }
+        // }
         footer+svg {
             display: none;
         }
