@@ -12,9 +12,9 @@
   },
   "author": "Patrick Dwyer",
   "license": "N/A",
-  "dependencies": {
-    "jsdom": "^22.1.0",
-    "node-fetch": "^3.3.2"
-  },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "vite": "^6.2.1",
+    "vite-plugin-pwa": "^0.21.1"
+  }
 }
