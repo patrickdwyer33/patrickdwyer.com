@@ -1,10 +1,10 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import appLogo from '/favicon.svg'
-import { setupCounter } from './counter.js'
-import { initPWA } from './pwa.js'
+import "./style.css";
+import javascriptLogo from "./javascript.svg";
+import appLogo from "/favicon.svg";
+import { setupCounter } from "./counter.js";
+import { initPWA } from "./pwa.js";
 
-const app = document.querySelector('#app')
+const app = document.querySelector("#app");
 app.innerHTML = `
   <div>
     <a href="https://vite.dev" target="_blank">
@@ -38,8 +38,8 @@ app.innerHTML = `
       </button>
     </div>
   </div>
-`
+`;
 
-setupCounter(document.querySelector('#counter'))
+setupCounter(document.querySelector("#counter"));
 
-initPWA(app)
+initPWA(app);
