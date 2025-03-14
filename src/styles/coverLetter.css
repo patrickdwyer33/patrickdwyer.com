@@ -176,7 +176,7 @@ sup {
   font-style: italic;
   font-stretch: normal;
   font-weight: 700;
-  src: url("/fonts/source-sans-italic-400.woff2") format("woff2");
+  src: url("/fonts/source-sans-italic-700.woff2") format("woff2");
 }
 @font-face {
   font-family: "Libre Baskerville";
@@ -184,6 +184,20 @@ sup {
   font-stretch: normal;
   font-weight: 400;
   src: url("/fonts/libre-baskerville-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Libre Baskerville";
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 700;
+  src: url("/fonts/libre-baskerville-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Libre Baskerville";
+  font-style: italic;
+  font-stretch: normal;
+  font-weight: 400;
+  src: url("/fonts/libre-baskerville-italic-400.woff2") format("woff2");
 }
 html {
   --page-width: 1000px;
@@ -287,6 +301,10 @@ svg#sprites {
   display: none;
 }
 
+.nowrap-li li {
+  white-space: nowrap;
+}
+
 .comma-separated {
   padding: 0;
 }
@@ -295,6 +313,13 @@ svg#sprites {
 }
 .comma-separated li:not(:last-child)::after {
   content: ", ";
+}
+.comma-separated li.linebreak {
+  white-space: nowrap;
+}
+.comma-separated li.linebreak:not(:last-child)::after {
+  content: "\a";
+  white-space: pre;
 }
 
 .emdash-separated {

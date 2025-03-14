@@ -93,6 +93,12 @@ svg#sprites {
     display: none;
 }
 
+.nowrap-li{
+    li {
+        white-space: nowrap;
+    }
+}
+
 .comma-separated {
     padding: 0;
 
@@ -101,6 +107,15 @@ svg#sprites {
 
         &:not(:last-child)::after {
             content: ", ";
+        }
+    }
+
+    li.linebreak {
+        white-space: nowrap;
+        
+        &:not(:last-child)::after {
+            content: "\A";
+            white-space: pre;
         }
     }
 }
@@ -122,6 +137,8 @@ svg#sprites {
         }
     }
 }
+
+
 
 .contact-info {
     display: flex;

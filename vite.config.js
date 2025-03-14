@@ -27,11 +27,12 @@ export default defineConfig({
 				skipWaiting: true,
 			},
 
-			devOptions: {
-				enabled: true,
-				suppressWarnings: false,
-				type: "module",
-			},
+			// uncomment if you want to test pwa in dev env
+			// devOptions: {
+			// 	enabled: true,
+			// 	suppressWarnings: false,
+			// 	type: "module",
+			// },
 		}),
 	],
 });
