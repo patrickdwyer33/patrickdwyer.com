@@ -5,4 +5,9 @@ package-lock.json
 images/
 fonts/
 # Other
-# resume.pdf
+*.pdf
+*.woff2
+*.svg
+*.jpg
+*.png
+*.webp

@@ -1,6 +1,11 @@
 import fs from "fs";
 import { exec, spawn } from "child_process";
-import { convertPdfJsonToText } from "./pdf-json-output-to-text.js";
+import path from "path";
+import convertPdfJsonToText from "./pdf-json-output-to-text.js";
+import screenshotPdf from "./ss-pdf.js";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Get the PDF filename from command line arguments
 const pdfFile = process.argv[2];
@@ -24,12 +29,33 @@ function sleep(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// Function to clean up Docker resources
+async function cleanupDocker(dockerRef) {
+	if (dockerRef.process) {
+		console.log("\nCleaning up Docker resources...");
+		try {
+			// First try to kill the spawned process
+			dockerRef.process.kill();
+		} catch (err) {
+			console.error(`Error killing Docker process: ${err.message}`);
+		}
+
+		try {
+			// Then make sure the container is stopped
+			await stopDockerContainer();
+			console.log("Docker cleanup completed successfully.");
+		} catch (err) {
+			console.error(`Error in Docker cleanup: ${err.message}`);
+		}
+	}
+}
+
 // Function to start the Docker container and wait for it to be ready
-async function startDockerContainer() {
+async function startDockerContainer(dockerRef) {
 	console.log("Starting Docker container...");
 
 	// Start the Docker container
-	const docker = spawn("docker", [
+	dockerRef.process = spawn("docker", [
 		"run",
 		"--rm",
 		"--platform",
@@ -61,7 +87,7 @@ async function startDockerContainer() {
 	};
 
 	// Check stdout for readiness
-	docker.stdout.on("data", (data) => {
+	dockerRef.process.stdout.on("data", (data) => {
 		const output = data.toString();
 		console.log(`Docker stdout: ${output}`);
 
@@ -70,7 +96,7 @@ async function startDockerContainer() {
 	});
 
 	// Check stderr for readiness - important as many containers output logs to stderr
-	docker.stderr.on("data", (data) => {
+	dockerRef.process.stderr.on("data", (data) => {
 		const output = data.toString();
 		console.error(`Docker stderr: ${output}`);
 
@@ -78,7 +104,7 @@ async function startDockerContainer() {
 		checkDataString(output);
 	});
 
-	docker.on("error", (error) => {
+	dockerRef.process.on("error", (error) => {
 		console.error(`Error starting Docker: ${error.message}`);
 		throw new Error(`Failed to start Docker container: ${error.message}`);
 	});
@@ -96,13 +122,11 @@ async function startDockerContainer() {
 
 	// Check if we timed out
 	if (!isReady) {
-		docker.kill();
+		dockerRef.process.kill();
 		throw new Error(
 			`Docker container failed to start after ${maxRetries} attempts.`
 		);
 	}
-
-	return docker;
 }
 
 // Function to process the PDF file
@@ -159,45 +183,71 @@ function stopDockerContainer() {
 }
 
 // Main execution function
-async function main() {
-	let dockerProcess = null;
+export async function main() {
+	// Create an object to hold the Docker process reference
+	const dockerRef = { process: null };
+
+	// Setup SIGINT handler (must be done before starting Docker)
+	process.on("SIGINT", async function () {
+		console.log("\nReceived SIGINT (Ctrl+C). Stopping gracefully...");
+		await cleanupDocker(dockerRef);
+		process.exit(0);
+	});
 
 	try {
-		// Start Docker container
-		dockerProcess = await startDockerContainer();
+		// Start Docker container and modify the process reference
+		await startDockerContainer(dockerRef);
 
 		// Give a little extra time for the server to stabilize
 		await new Promise((resolve) => setTimeout(resolve, 2000));
 
 		// Process the PDF file
 		const jsonData = await processPdf(pdfFile);
+		console.log(jsonData);
 
 		// Convert JSON to text
-		const formattedText = convertPdfJsonToText(jsonData);
+		const result = convertPdfJsonToText(jsonData);
+		const formattedText = result.text;
+		let mediaItems = result.mediaItems;
+		console.log(mediaItems);
+
+		const pdfFileAbsolutePath = path.join(__dirname, pdfFile);
+
+		mediaItems = await screenshotPdf(pdfFileAbsolutePath, mediaItems);
+		console.log(mediaItems);
+
+		// Create tmp directory in the same directory as the script
+		const tmpDir = path.join(__dirname, "tmp");
+
+		// Ensure the tmp directory exists
+		if (!fs.existsSync(tmpDir)) {
+			fs.mkdirSync(tmpDir, { recursive: true });
+			console.log(`Created temporary directory: ${tmpDir}`);
+		}
+
+		// Save each image in mediaItems to the temporary directory
+		mediaItems.forEach((item, index) => {
+			if (item.base64) {
+				const base64Data = item.base64.replace(
+					/^data:image\/png;base64,/,
+					""
+				);
+				const filePath = path.join(tmpDir, `image-${index + 1}.png`);
+				fs.writeFileSync(filePath, base64Data, "base64");
+				console.log(`Saved image to ${filePath}`);
+			}
+		});
 
 		// Log the result
 		console.log("\nPDF Text Conversion Result:");
 		console.log(formattedText);
 	} catch (error) {
 		console.error(`Error in processing pipeline: ${error.message}`);
+		await cleanupDocker(dockerRef);
 		process.exit(1);
 	} finally {
 		// Always try to clean up the Docker container
-		if (dockerProcess) {
-			try {
-				// First try to kill the spawned process
-				dockerProcess.kill();
-			} catch (err) {
-				console.error(`Error killing Docker process: ${err.message}`);
-			}
-
-			try {
-				// Then make sure the container is stopped
-				await stopDockerContainer();
-			} catch (err) {
-				console.error(`Error in Docker cleanup: ${err.message}`);
-			}
-		}
+		await cleanupDocker(dockerRef);
 	}
 }
 

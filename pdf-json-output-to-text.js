@@ -1,16 +1,23 @@
 /**
  * Converts PDF JSON output (from pdf extraction tools) into a format optimized for LLM understanding
  * @param {Array} jsonData - Array of objects containing PDF text elements and their metadata
- * @returns {string} - Formatted text with preserved structural elements
+ * @returns {Object} - Object containing formatted text and media items collection
+ * @returns {string} result.text - Formatted text with preserved structural elements
+ * @returns {Array} result.mediaItems - Collection of pictures and tables with unique IDs
  */
-export function convertPdfJsonToText(jsonData) {
+export default function convertPdfJsonToText(jsonData) {
 	if (!Array.isArray(jsonData) || jsonData.length === 0) {
-		return "No content found in the provided JSON data.";
+		return {
+			text: "No content found in the provided JSON data.",
+			mediaItems: [],
+		};
 	}
 
 	// Process each element in its original order
 	let result = "";
 	let currentPage = null;
+	let mediaItems = [];
+	let mediaIdCounter = 1;
 
 	// Iterate through items in their original order
 	jsonData.forEach((item) => {
@@ -22,9 +29,6 @@ export function convertPdfJsonToText(jsonData) {
 			currentPage = item.page_number;
 		}
 
-		// Skip empty text
-		if (!item.text || !item.text.trim()) return;
-
 		// Format based on element type
 		switch (item.type) {
 			case "Section header":
@@ -33,16 +37,35 @@ export function convertPdfJsonToText(jsonData) {
 			case "List item":
 				result += `\n• ${item.text}`;
 				break;
-			case "Picture":
+			case "Picture": {
+				// Create a unique ID for the picture
+				const mediaId = `img-${mediaIdCounter++}`;
+
+				// Add picture to mediaItems collection with ID
+				const mediaItem = { ...item, mediaId };
+				mediaItems.push(mediaItem);
+
+				// Include ID in the text output
 				if (item.text.trim()) {
-					result += `\n$\{Image: ${item.text}\}\n`;
+					result += `\n$\{Image[${mediaId}]: ${item.text}`;
 				} else {
-					result += "\n${Image]}\n";
+					result += `\n$\{Image[${mediaId}]`;
 				}
+				result += " }\n";
 				break;
-			case "Table":
-				result += `\n$\{Table content: ${item.text}\}\n`;
+			}
+			case "Table": {
+				// Create a unique ID for the table
+				const mediaId = `tbl-${mediaIdCounter++}`;
+
+				// Add table to mediaItems collection with ID
+				const mediaItem = { ...item, mediaId };
+				mediaItems.push(mediaItem);
+
+				// Include ID in the text output
+				result += `\n$\{Table[${mediaId}] content: ${item.text}\}\n`;
 				break;
+			}
 			case "Text":
 			default:
 				// Check if this might be a continuation of previous text
@@ -64,8 +87,13 @@ export function convertPdfJsonToText(jsonData) {
 	});
 
 	// Post-processing to clean up excessive whitespace and improve formatting
-	return result
+	const formattedText = result
 		.replace(/\n{3,}/g, "\n\n") // Replace excessive newlines
 		.replace(/\s+\n/g, "\n") // Remove trailing spaces before newlines
 		.trim();
+
+	return {
+		text: formattedText,
+		mediaItems: mediaItems,
+	};
 }
