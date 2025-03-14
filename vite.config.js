@@ -35,4 +35,14 @@ export default defineConfig({
 			// },
 		}),
 	],
+
+	// Add CORS configuration for the dev server
+	server: {
+		cors: {
+			origin: "*", // Allow requests from any origin
+			methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+			allowedHeaders: ["Content-Type", "Authorization"],
+			credentials: true,
+		},
+	},
 });
