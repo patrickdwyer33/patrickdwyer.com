@@ -203,18 +203,15 @@ export async function main() {
 
 		// Process the PDF file
 		const jsonData = await processPdf(pdfFile);
-		console.log(jsonData);
 
 		// Convert JSON to text
 		const result = convertPdfJsonToText(jsonData);
 		const formattedText = result.text;
 		let mediaItems = result.mediaItems;
-		console.log(mediaItems);
 
-		const pdfFileAbsolutePath = path.join(__dirname, pdfFile);
+		const pdfFileAbsolutePath = `file://${path.join(__dirname, pdfFile)}`;
 
 		mediaItems = await screenshotPdf(pdfFileAbsolutePath, mediaItems);
-		console.log(mediaItems);
 
 		// Create tmp directory in the same directory as the script
 		const tmpDir = path.join(__dirname, "tmp");
@@ -233,7 +230,8 @@ export async function main() {
 					""
 				);
 				const filePath = path.join(tmpDir, `image-${index + 1}.png`);
-				fs.writeFileSync(filePath, base64Data, "base64");
+				const buffer = Buffer.from(base64Data, "base64");
+				fs.writeFileSync(filePath, buffer);
 				console.log(`Saved image to ${filePath}`);
 			}
 		});
