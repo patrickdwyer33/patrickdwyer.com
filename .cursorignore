@@ -1,0 +1,16 @@
+# Builds
+dev-dist/
+dist/
+# Packages
+node_modules/
+package-lock.json
+# Assets
+images/
+fonts/
+# Other
+*.pdf
+*.woff2
+*.svg
+*.jpg
+*.png
+*.webp
