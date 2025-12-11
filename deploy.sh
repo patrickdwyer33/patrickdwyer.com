@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define variables
-REMOTE_SERVER="ector.websanity.com"
-REMOTE_DIR="/var/www/patrickdwyer.com"
+REMOTE_SERVER="rulepop.com"
+REMOTE_DIR="/var/www/_extra/patrickdwyer.com"
 LOCAL_DIR="dist/"
 
 # Execute rsync command to sync files and capture the output
