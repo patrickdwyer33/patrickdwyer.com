@@ -4,7 +4,7 @@
 
 html {
 	--content-gap: 1em;
-	font-family: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-family: system-ui, sans-serif;
 	font-size: 18px;
 	line-height: 1.4;
 }
@@ -12,7 +12,7 @@ html {
 body {
 	margin: 0;
 	background-color: white;
-	min-height: 100vh;
+	min-height: 100svh;
 	-webkit-text-size-adjust: 100%;
 	-webkit-tap-highlight-color: transparent;
 }
