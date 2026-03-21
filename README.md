@@ -1,5 +1,12 @@
 # patrickdwyer.com
 
-Repository for patrickdwyer.com
+Personal CV/resume website. Single-page vanilla HTML/CSS/JS built with Vite + PWA support.
 
-Work in progress!
+## Project Docs
+
+| File | Purpose |
+| ---- | ------- |
+| [TASKS.md](TASKS.md) | Structured task backlog — numbered tasks with phases and sub-items |
+| [TODO.md](TODO.md) | Free-form scratchpad for quick notes, reminders, and in-progress thoughts |
+| [GAPS.md](GAPS.md) | Known code stubs, unimplemented functions, and placeholder values |
+| [IDEAS.md](IDEAS.md) | Long-term ideas and future directions, no commitment implied |
