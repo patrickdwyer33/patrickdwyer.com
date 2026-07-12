@@ -20,7 +20,7 @@ Structure:
 - `src/styles/cv.scss` → compiled to `src/styles/cv.css` — main stylesheet
 - `src/styles/coverLetter.scss` → `coverLetter.css` — cover letter styles
 - `src/styles/_boilerplate.scss`, `_fonts.scss`, `_print.scss`, `_theme.scss` — partials
-- `public/` — static assets (images, resume PDF, etc.)
+- `public/` — static assets (images, CV PDF, etc.)
 - `dist/` — build output (not committed)
 - `pwa-assets.config.js` — PWA icon generation config
 
@@ -38,5 +38,5 @@ Note: SCSS files must be compiled manually (no build step watches them automatic
 - All content lives in `index.html` — no templating, no components
 - SVG icons are inlined as `<symbol>` sprites at the bottom of `index.html` and referenced via `<use href="#i-*">`
 - Print styles are handled via `_print.scss`; some elements use `.no-print` / `.print` classes to toggle visibility
-- Resume PDF is at `public/resume.pdf` and linked from the footer download button — generated manually by printing the site in the browser (File → Print → Save as PDF), not via any automated tool
+- CV PDF is at `public/cv.pdf` and linked from the footer download button — generated manually by printing the site in the browser (File → Print → Save as PDF), not via any automated tool
 - PWA theme color: `#D3D3FF`

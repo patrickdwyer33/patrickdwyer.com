@@ -16,7 +16,7 @@ export default defineConfig({
 			manifest: {
 				name: "patrickdwyer.com",
 				short_name: "patrickdwyer.com",
-				description: "Personal resume website for Patrick Dwyer",
+				description: "Personal CV website for Patrick Dwyer",
 				theme_color: "#D3D3FF",
 			},
 

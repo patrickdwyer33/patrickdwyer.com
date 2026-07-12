@@ -496,7 +496,7 @@ span.italics {
   display: contents;
 }
 
-#resume-download-btn {
+#cv-download-btn {
   padding: 0 0.5em;
   height: 1.5em;
   background-color: hsla(0, 0%, 100%, 0.7);
@@ -505,7 +505,7 @@ span.italics {
   transition: background-color 400ms;
   color: hsl(205, 32%, 48%);
 }
-#resume-download-btn:hover, #resume-download-btn:active, #resume-download-btn:focus {
+#cv-download-btn:hover, #cv-download-btn:active, #cv-download-btn:focus {
   background-color: white;
 }
 
@@ -515,7 +515,7 @@ span.italics {
 
 @media print {
   @page {
-    margin: 2cm 2cm;
+    margin: 1.5cm 1.5cm;
   }
   html {
     font-size: 10pt;
